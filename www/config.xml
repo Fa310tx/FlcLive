@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.flc.liveserviceapp" version = "0.1">
+	<name>FLC Live Service App</name>
+	<description>Faith Life Church live service app for iOS and Android 3+.  Created with PhoneGap / GitHub.</description>
+	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
+	<feature name="http://api.phonegap.com/1.0/device" />
+	<preference name="orientation" value="landscape" />
+	<preference name="target-device" value="universal" />
+	<preference name="fullscreen" value="true" />
+	<icon src="Logo-Flc-Transparent-115x115.png" />
+</widget>
