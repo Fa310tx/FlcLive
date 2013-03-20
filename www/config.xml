@@ -32,7 +32,7 @@
 	-->
 
 	<!-- Define app icon for each platform. -->
-	<icon src="Logo-Flc-Transparent-115x115.png" />
+	<icon src="images/logo.png" />
 	<!-- defaults to above icon
 	<icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
 	<icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
@@ -57,10 +57,10 @@
 	<gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
 	<gap:splash src="res/screen/blackberry/screen-225.png"         gap:platform="blackberry" />
 	-->
-	<gap:splash src="screen-iphone-portrait-2x.jpg"    gap:platform="ios"     width="320" height="480" />
-	<gap:splash src="screen-iphone-portrait-2x.jpg" gap:platform="ios"     width="640" height="960" />
-	<gap:splash src="screen-iphone-portrait-2x.jpg"      gap:platform="ios"     width="768" height="1024" />
-	<gap:splash src="screen-iphone-landscape-2x.jpg"     gap:platform="ios"     width="1024" height="768" />
+	<gap:splash src="images/screen-iphone-portrait-2x.jpg"    gap:platform="ios"     width="320" height="480" />
+	<gap:splash src="images/screen-iphone-portrait-2x.jpg"    gap:platform="ios"     width="640" height="960" />
+	<gap:splash src="images/screen-iphone-portrait-2x.jpg"    gap:platform="ios"     width="768" height="1024" />
+	<gap:splash src="images/screen-iphone-landscape-2x.jpg"   gap:platform="ios"     width="1024" height="768" />
 	<!--
 	<gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 	-->
