@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.faithlifechurch.liveservice" version = "0.7">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.faithlifechurch.liveservice" version = "0.8">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 3+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
@@ -9,9 +9,8 @@
 
 	<!-- Customize your app and platform with the preference element. -->
 	<!-- If you do not want any permissions to be added to your app, add the following tag to your config.xml; you will still have the INTERNET permission on your app, which PhoneGap requires. -->
-	<!--
-	<preference name="permissions" value="none"/>
-	<preference name="phonegap-version"           value="2.3.0" />-->          <!-- all: current version of PhoneGap -->
+	<!--<preference name="permissions" value="none"/>-->
+	<!--<preference name="phonegap-version"           value="2.3.0" />-->          <!-- all: current version of PhoneGap -->
 	<preference name="orientation"                value="default" />      <!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
 	<preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
@@ -59,8 +58,12 @@
 	-->
 	<gap:splash src="images/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
 	<gap:splash src="images/screen-iphone-portrait-2x.png"    gap:platform="ios"     width="640" height="960" />
+	<gap:splash src="images/screen-iphone-landscape.png"    gap:platform="ios"     width="480" height="320" />
+	<gap:splash src="images/screen-iphone-landscape-2x.png"    gap:platform="ios"     width="960" height="640" />
 	<gap:splash src="images/screen-ipad-portrait.png"    gap:platform="ios"     width="768" height="1024" />
-	<gap:splash src="images/screen-iphone-landscape.png"   gap:platform="ios"     width="1024" height="768" />
+	<gap:splash src="images/screen-ipad-portrait-2x.png"    gap:platform="ios"     width="1536" height="2048" />
+	<gap:splash src="images/screen-ipad-landscape.png"   gap:platform="ios"     width="1024" height="768" />
+	<gap:splash src="images/screen-ipad-landscape-2x.png"   gap:platform="ios"     width="2048" height="1536" />
 	<!--
 	<gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 	-->
