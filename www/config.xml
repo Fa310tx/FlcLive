@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.faithlifechurch.liveservice" version = "0.17">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "com.faithlifechurch.liveservice" version = "0.18">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 3+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
