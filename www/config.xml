@@ -2,7 +2,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "1.0">
 	<name>FLC Live</name>
-	<description>Faith Life Church live service app for iOS and Android 3+.  Created with PhoneGap / GitHub.</description>
+	<description>Faith Life Church live service app for iOS and Android 4+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
 	<!-- Enable individual API permissions by defining each here.  The 'device' permission is required for the 'deviceready' event. -->
 	<feature name="http://api.phonegap.com/1.0/device" />
@@ -13,17 +13,17 @@
 	<!-- Something funky changed from 2.3.0 to 2.5.0
 		If fullscreen was set to false the splash screen would drop a little during loading
 		Also, the Blackberry version wouldn't build without a password and key, but 2.3.0 builds just fine -->
-	<preference name="phonegap-version" value="2.5.0" /> <!-- all: current version of PhoneGap -->
+	<preference name="phonegap-version" value="2.7.0" /> <!-- all: current version of PhoneGap -->
 	<preference name="orientation" value="default" /> <!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device" value="universal" /> <!-- all: possible values handset, tablet, or universal -->
-	<preference name="fullscreen" value="true" /> <!-- all: hides the status bar at the top of the screen -->
+	<preference name="fullscreen" value="flase" /> <!-- all: hides the status bar at the top of the screen -->
 	<preference name="webviewbounce" value="true" /> <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
 	<preference name="prerendered-icon" value="false" /> <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
 	<preference name="stay-in-webview" value="true" /> <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
 	<preference name="ios-statusbarstyle" value="black-opaque" /> <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
 	<preference name="detect-data-types" value="true" /> <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
 	<preference name="exit-on-suspend" value="true" /> <!-- ios: if set to true, app will terminate when home button is pressed -->
-	<preference name="show-splash-screen-spinner" value="false" /> <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+	<preference name="show-splash-screen-spinner" value="true" /> <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
 	<preference name="auto-hide-splash-screen" value="true" /> <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
 	<preference name="disable-cursor" value="false" /> <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
 	<preference name="android-minSdkVersion" value="14" /> <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
