@@ -53,7 +53,9 @@
 	<!-- Define access to external domains.
 	<!-- 
 	<access /> - A blank access tag denies access to all external resources.
-	<access origin="*" /> - A wildcard access tag allows access to all external resource.
+	-->
+	<access origin="*" /> <!-- A wildcard access tag allows access to all external resource. -->
+	<!--
 	<access origin="http://127.0.0.1*"/> - allow local pages only
 	<access origin="http://phonegap.com" /> - allow any secure requests to http://phonegap.com/
 	-->
