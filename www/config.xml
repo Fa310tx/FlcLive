@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.28">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.29">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 4+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
@@ -50,7 +50,7 @@
 	<gap:splash src="images/LaunchScreens/launch-ipad-app-L.png" gap:platform="ios" width="1024" height="768" />
 	<gap:splash src="images/LaunchScreens/launch-ipad-app-L-2x.png" gap:platform="ios" width="2048" height="1536" />
 
-	<!-- Define access to external domains.
+	<!-- Define access to external domains. -->
 	<!-- 
 	<access /> - A blank access tag denies access to all external resources.
 	<access origin="*" /> - A wildcard access tag allows access to all external resource.
@@ -59,4 +59,5 @@
 	<access origin="http://thankyou4caring.org" subdomains="true" /> - same as above, but including subdomains, such as http://build.phonegap.com/
 	<access origin="http://thankyou4caring.org" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
 	-->
+	<access origin="http://www.flcbranson.org" browserOnly="true" />
 </widget>
