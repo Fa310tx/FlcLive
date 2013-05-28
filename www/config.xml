@@ -59,7 +59,4 @@
 	<access origin="http://thankyou4caring.org" subdomains="true" /> - same as above, but including subdomains, such as http://build.phonegap.com/
 	<access origin="http://thankyou4caring.org" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
 	-->
-	<access origin="*" />
-	<access origin="https://thankyou4caring.org" subdomains="true" />
-	<access origin="https://thankyou4caring.org" browserOnly="true" />
 </widget>
