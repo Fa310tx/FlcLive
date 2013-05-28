@@ -60,4 +60,5 @@
 	<access origin="http://thankyou4caring.org" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
 	-->
 	<access origin="http://www.flcbranson.org" />
+	<access origin="https://faithlifechurchbranson.thankyou4caring.org" browserOnly="true" />
 </widget>
