@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.21">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.22">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 4+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
@@ -59,6 +59,7 @@
 	<access origin="http://thankyou4caring.org" subdomains="true" /> - same as above, but including subdomains, such as http://build.phonegap.com/
 	<access origin="http://thankyou4caring.org" browserOnly="true" /> - only allows http://phonegap.com to be opened by the child browser.
 	-->
+	<access origin="*" />
 	<access origin="https://thankyou4caring.org" subdomains="true" />
 	<access origin="https://thankyou4caring.org" browserOnly="true" />
 </widget>
