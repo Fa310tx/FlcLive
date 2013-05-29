@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <title></title>
 <script>
-window.open(encodeURI('http://www.flcbranson.org/liveapp'), '_system', 'location=yes');
+// Wait for Cordova to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+// Cordova is ready
+//
+function onDeviceReady() {
+	// external url
+	var ref = window.open(encodeURI('http://www.flcbranson.org/liveapp'), '_system', 'location=yes');
+}
 </script>
 </head>
 <body>
