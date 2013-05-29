@@ -9,11 +9,19 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <title></title>
+<script type="text/javascript" charset="utf-8">
+// Wait for Cordova to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+// Cordova is ready
+//
+function onDeviceReady() {
+	// external url
+	var ref = window.open(encodeURI('http://www.flcbranson.org/liveapp'), 'system', 'location=yes');
+}
+</script>
 </head>
 <body>
-<script>
-window.open('http://www.flcbranson.org/liveapp', '_system');
-</script>
 <!--
 <ul>
 	<li><a href="index.html">refresh local app page</a></li>
