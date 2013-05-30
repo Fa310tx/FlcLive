@@ -41,6 +41,8 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 		}
 	} else if (data.status == 'flcb' || data.status == 'flcs') {
 		window.location = "http://www.flcbranson.org/liveapp";
+	} else {
+		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
 	}
 });
 </script>
