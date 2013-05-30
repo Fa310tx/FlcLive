@@ -40,9 +40,9 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 			var ref = window.open(encodeURI('http://www.flcbranson.org'), '_system', 'location=yes');
 		}
 	} else if (data.status == 'flcb') {
-		alert(data.status);
+		document.write('<video src="http://mlmidev.webcastcenter.com/flcb_1/idev.isml/manifest(format=m3u8-aapl).m3u8" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>');
 	} else if (data.status == 'flcs') {
-		alert(data.status);
+		document.write('<video src="http://mlmidev.webcastcenter.com/flcs_1/idev.isml/manifest(format=m3u8-aapl).m3u8" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>');
 	}
 });
 </script>
