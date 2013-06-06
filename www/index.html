@@ -31,7 +31,9 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
-	if (data.status == 'off') {
+	if (data.status == 'flcb' || data.status == 'flcs') {
+		window.location = "http://www.flcbranson.org/liveapp";
+	} /*else if (data.status == 'off') {
 		// Wait for Cordova to load
 		document.addEventListener("deviceready", onDeviceReady, false);
 		// Cordova is ready
@@ -39,15 +41,25 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 			// open URL in default web browser
 			var ref = window.open(encodeURI('http://www.flcbranson.org'), '_system', 'location=yes');
 		}
-	} else if (data.status == 'flcb' || data.status == 'flcs') {
-		window.location = "http://www.flcbranson.org/liveapp";
 	} else {
 		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
-	}
+	}*/
 });
+</script>
+<script>
+function redirectToSystemBrowser() {
+	// Wait for Cordova to load
+	document.addEventListener("deviceready", onDeviceReady, false);
+	// Cordova is ready
+	function onDeviceReady() {
+		// open URL in default web browser
+		var ref = window.open(encodeURI('http://www.flcbranson.org'), '_system', 'location=yes');
+	}
+}
 </script>
 </head>
 <body>
+<a href="javascript:void(0)" onClick="redirectToSystemBrowser();">system browser test</a>
 <script src="phonegap.js"></script>
 <script>
 app.initialize();
