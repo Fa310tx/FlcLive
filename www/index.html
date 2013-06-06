@@ -47,19 +47,19 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 });
 </script>
 <script>
-function redirectToSystemBrowser() {
+function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
 	document.addEventListener("deviceready", onDeviceReady, false);
 	// Cordova is ready
 	function onDeviceReady() {
 		// open URL in default web browser
-		var ref = window.open(encodeURI('http://www.flcbranson.org'), '_system', 'location=yes');
+		var ref = window.open(encodeURI(url), '_system', 'location=yes');
 	}
 }
 </script>
 </head>
 <body>
-<a href="javascript:void(0)" onClick="redirectToSystemBrowser();">system browser test</a>
+<a href="javascript:void(0)" onClick="redirectToSystemBrowser('http://www.flcbranson.org');">system browser test</a>
 <script src="phonegap.js"></script>
 <script>
 app.initialize();
