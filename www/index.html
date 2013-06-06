@@ -63,10 +63,10 @@ fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	fridayrebroadcastsite = data.friday;
 });
 function sundayRebroadcast() {
-	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + sundayrebroadcastsite + "&amp;rebroadcastday=sun";
+	window.location = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + sundayrebroadcastsite + "&amp;rebroadcastday=sun";
 }
 function fridayRebroadcast() {
-	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + fridayrebroadcastsite + "&amp;rebroadcastday=sun";
+	window.location = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + fridayrebroadcastsite + "&amp;rebroadcastday=sun";
 }
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
