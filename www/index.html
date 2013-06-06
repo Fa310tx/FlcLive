@@ -13,7 +13,7 @@ body { margin:0; padding:0; }
 video { position:absolute; top:0; left:0; right:0; width:100%; height:100%; }
 </style>
 <script>
-// tet some JSON data
+// get some JSON data
 function fetchJSONFile(path, callback) {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = function() {
@@ -46,19 +46,19 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
 	}*/
 });
-// tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-	// do something with your data
-	// alert(JSON.stringify(data));
-	// alert(data.datetime + ', ' + data.status);
-	var sunday = data.sunday, friday = data.friday;
-	// inject some code when the page loads
-	window.onload = function() {
-		// JavaScript can't be accessed in the HTML code like PHP can, so we have to inject HTML with JavaScript
-		document.getElementById('sundayrebroadcast').InnerHTML = '<a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun">Sunday Rebroadcast</a>';
-		document.getElementById('fridayrebroadcast').InnerHTML = '<a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri">Friday Rebroadcast</a>';
-	}
-});
+// inject some code when the page loads
+window.onload = function() {
+	// tell the function where the JSON data is
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+		// do something with your data
+		// alert(JSON.stringify(data));
+		// alert(data.datetime + ', ' + data.status);
+		var sunday = data.sunday, friday = data.friday;
+			// JavaScript can't be accessed in the HTML code like PHP can, so we have to inject HTML with JavaScript
+			document.getElementById('sundayrebroadcast').InnerHTML = '<a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun">Sunday Rebroadcast</a>';
+			document.getElementById('fridayrebroadcast').InnerHTML = '<a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri">Friday Rebroadcast</a>';
+	});
+}
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
