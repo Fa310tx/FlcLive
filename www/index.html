@@ -56,12 +56,6 @@ fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	var sunday = data.sunday, friday = data.friday;
 });
 
-// inject some code when the page loads
-function rebroadcastLinks() {
-	// JavaScript can't be accessed in the HTML code like PHP can, so we have to inject HTML with JavaScript
-	document.getElementById('rebroadcastlinks').innerHTML = '<li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun">Sunday Rebroadcast</a></li><li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri">Friday Rebroadcast</a></li>';
-}
-
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
@@ -74,11 +68,15 @@ function redirectToSystemBrowser(url) {
 }
 </script>
 </head>
-<body onload="rebroadcastLinks()">
+<body>
 <h1><abbr title="Faith Life Church">FLC</abbr> Live Broadcast Mobile <abbr title="Application">App</abbr></h1>
 <h2>Full Service Rebroadcasts</h2>
 <p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
 <p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
+<script>
+// JavaScript can't be accessed in the HTML code like PHP can, so we have to inject HTML with JavaScript
+document.getElementById('rebroadcastlinks').innerHTML = '<li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun">Sunday Rebroadcast</a></li><li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri">Friday Rebroadcast</a></li>';
+</script>
 <ul id="rebroadcastlinks">
 </ul>
 <h2>Churches &amp; Ministry</h2>
