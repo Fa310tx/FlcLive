@@ -56,7 +56,9 @@ function sundayRebroadcast() {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		window.location = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + data.sunday + "&amp;rebroadcastday=sun";
+		var sundayrebroadcastlink = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + data.sunday + "&amp;rebroadcastday=sun";
+		alert(sundayrebroadcastlink);
+		// window.location = sundayrebroadcastlink;
 	});
 }
 function fridayRebroadcast() {
@@ -65,7 +67,9 @@ function fridayRebroadcast() {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		window.location = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + data.friday + "&amp;rebroadcastday=fri";
+		var fridayrebroadcastlink = "http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=" + data.friday + "&amp;rebroadcastday=fri";
+		alert(fridayrebroadcastlink);
+		// window.location = fridayrebroadcastlink;
 	});
 }
 
