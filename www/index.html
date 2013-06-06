@@ -37,9 +37,9 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	// do something with your data
 	// alert(JSON.stringify(data));
-	// alert(data.datetime + ', ' + data.status);
-	var sundayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.sunday + "&amp;rebroadcastday=sun";
-	var fridayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.friday + "&amp;rebroadcastday=fri";
+	// alert(data.sunday + ', ' + data.friday);
+	var sunday = data.sunday;
+	var friday = data.friday;
 });
 </script>
 </head>
@@ -49,8 +49,8 @@ fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 <p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
 <p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
 <ul>
-	<li><a href="javascript:void(0)" onClick="sundayRebroadcast()">Sunday Rebroadcast</a></li>
-	<li><a href="javascript:void(0)" onClick="fridayRebroadcast()">Friday Rebroadcast</a></li>
+	<li><a href="javascript:sundayRebroadcast()">Sunday Rebroadcast</a></li>
+	<li><a href="javascript:fridayRebroadcast()">Friday Rebroadcast</a></li>
 </ul>
 <h2>External Links (<small>opens in system browser</small>)</h2>
 <ul>
@@ -60,11 +60,11 @@ fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 <!-- page javascript that isn't required before the page loads -->
 <script>
 function sundayRebroadcast() {
-	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=flcb&amp;rebroadcastday=sun";
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + sunday + "&amp;rebroadcastday=sun";
 }
 
 function fridayRebroadcast() {
-	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=flcb&amp;rebroadcastday=fri";
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + friday + "&amp;rebroadcastday=fri";
 }
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
