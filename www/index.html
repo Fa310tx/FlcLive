@@ -58,7 +58,7 @@ var fridayrebroadcastsite;
 fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	// do something with your data
 	// alert(JSON.stringify(data));
-	// alert(data.sunday + ', ' + data.friday);
+	alert(data.sunday + ', ' + data.friday);
 	sundayrebroadcastsite = data.sunday;
 	fridayrebroadcastsite = data.friday;
 });
