@@ -51,7 +51,7 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	// do something with your data
-	// alert(JSON.stringify(data));
+	alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
 	var sunday = data.sunday, friday = data.friday;
 });
@@ -73,10 +73,6 @@ function redirectToSystemBrowser(url) {
 <h2>Full Service Rebroadcasts</h2>
 <p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
 <p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
-<script>
-// JavaScript can't be accessed in the HTML code like PHP can, so we have to inject HTML with JavaScript
-document.getElementById('rebroadcastlinks').innerHTML = '<li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun">Sunday Rebroadcast</a></li><li><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri">Friday Rebroadcast</a></li>';
-</script>
 <ul id="rebroadcastlinks">
 </ul>
 <h2>Churches &amp; Ministry</h2>
