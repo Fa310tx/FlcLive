@@ -2,105 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--
 <meta http-equiv="refresh" content="0; url=http://www.flcbranson.org/liveapp">
--->
 <title>FLC Live</title>
-<style>
-body { margin:0; padding:0; }
-/* height:auto and height:100% don't change height for iOS and it puts the controls below the screen bottom for computers and Android */
-video { position:absolute; top:0; left:0; right:0; width:100%; height:100%; }
-</style>
-<script>
-// get some JSON data
-function fetchJSONFile(path, callback) {
-	var httpRequest = new XMLHttpRequest();
-	httpRequest.onreadystatechange = function() {
-		if (httpRequest.readyState === 4) {
-			if (httpRequest.status === 200) {
-				var data = JSON.parse(httpRequest.responseText);
-				if (callback) callback(data);
-			}
-		}
-	};
-	httpRequest.open('GET', path);
-	httpRequest.send(); 
-}
-
-// tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
-	// do something with your data
-	// alert(JSON.stringify(data));
-	// alert(data.datetime + ', ' + data.status);
-	if (data.status == 'flcb' || data.status == 'flcs') {
-		window.location = "http://www.flcbranson.org/liveapp";
-	} /*else if (data.status == 'off') {
-		// Wait for Cordova to load
-		document.addEventListener("deviceready", onDeviceReady, false);
-		// Cordova is ready
-		function onDeviceReady() {
-			// open URL in default web browser
-			var ref = window.open(encodeURI('http://www.flcbranson.org'), '_system', 'location=yes');
-		}
-	} else {
-		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
-	}*/
-});
-
-// tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-	// do something with your data
-	// alert(JSON.stringify(data));
-	// alert(data.datetime + ', ' + data.status);
-	var sunday = data.sunday, friday = data.friday;
-});
-
-// replace the default Branson / Sarasota rebroadcast links with appropriate Sunday / Friday rebroadcast links
-function rebroadcastLink() {
-	document.getElementById('rebroadcast1').href='http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun';
-	document.getElementById('rebroadcast1').innerHTML = "Sunday Rebroadcast";
-	document.getElementById('rebroadcast2').href='http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=fri';
-	document.getElementById('rebroadcast2').innerHTML = "Friday Rebroadcast";
-}
-
-// window.open wasn't opening a link in the system browser on iOS, so we have to use this function
-function redirectToSystemBrowser(url) {
-	// Wait for Cordova to load
-	document.addEventListener("deviceready", onDeviceReady, false);
-	// Cordova is ready
-	function onDeviceReady() {
-		// open URL in default web browser
-		var ref = window.open(encodeURI(url), '_system', 'location=yes');
-	}
-}
-</script>
 </head>
-<body onLoad="rebroadcastLink();">
-<h1><abbr title="Faith Life Church">FLC</abbr> Live Broadcast Mobile <abbr title="Application">App</abbr></h1>
-<h2>Full Service Rebroadcasts</h2>
-<p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
-<p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
-<ul>
-	<li><a id="rebroadcast1" href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=flcb">Branson Rebroadcast</a></li>
-	<li><a id="rebroadcast2" href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=flcs">Sarasota Rebroadcast</a></li>
-</ul>
-<h2>External Links (<small>opens in system browser</small>)</h2>
-<ul>
-	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
-	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
-</ul>
-<!-- Google Analytics -->
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-39575525-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
+<body>
 <!-- May be required for the external browser links -->
 <script src="phonegap.js"></script>
 <!-- Don't really know what this does or if it's required -->
