@@ -50,23 +50,23 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 </ul>
 <!-- page javascript that isn't required before the page loads -->
 <script>
+// create the rebroadcast links using JSON data
+// define variables outside of a function if you want them to be usable outside of a function (global variable)
+var sundayrebroadcastsite;
+var fridayrebroadcastsite;
+// tell the function where the JSON data is
+fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+	// do something with your data
+	// alert(JSON.stringify(data));
+	// alert(data.sunday + ', ' + data.friday);
+	sundayrebroadcastsite = data.sunday;
+	fridayrebroadcastsite = data.friday;
+});
 function sundayRebroadcast() {
-	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-		// do something with your data
-		// alert(JSON.stringify(data));
-		// alert(data.sunday + ', ' + data.friday);
-		window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.sunday + "&amp;rebroadcastday=sun";
-	});
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + sundayrebroadcastsite + "&amp;rebroadcastday=sun";
 }
 function fridayRebroadcast() {
-	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-		// do something with your data
-		// alert(JSON.stringify(data));
-		// alert(data.sunday + ', ' + data.friday);
-		window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.friday + "&amp;rebroadcastday=sun";
-	});
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + fridayrebroadcastsite + "&amp;rebroadcastday=sun";
 }
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
