@@ -51,10 +51,15 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 	// do something with your data
-	alert(JSON.stringify(data));
+	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
 	var sunday = data.sunday, friday = data.friday;
 });
+
+function rebroadcastLink() {
+	document.getElementById('sundayrebroadcast').href='http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + sunday + '&rebroadcastday=sun';
+	document.getElementById('fridayrebroadcast').href='http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=' + friday + '&rebroadcastday=sun';
+}
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
@@ -68,24 +73,19 @@ function redirectToSystemBrowser(url) {
 }
 </script>
 </head>
-<body>
+<body onLoad="rebroadcastLink();">
 <h1><abbr title="Faith Life Church">FLC</abbr> Live Broadcast Mobile <abbr title="Application">App</abbr></h1>
 <h2>Full Service Rebroadcasts</h2>
 <p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
 <p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
-<ul id="rebroadcastlinks">
-</ul>
-<h2>Churches &amp; Ministry</h2>
 <ul>
-	<li><a href="javascript:void(0)" onClick="window.location = 'http://www.flcbranson.org';">Faith Life Church - Branson, MO</a></li>
-	<li><a href="javascript:void(0)" onClick="window.location = 'http://www.flcsarasota.org';">Faith Life Church - Sarasota, FL</a></li>
-	<li><a href="javascript:void(0)" onClick="window.location = 'http://www.moorelife.org';">Moore Life Ministries - Branson, MO</a></li>
+	<li id="sundayrebroadcast"><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=flcb&rebroadcastday=sun">Sunday Rebroadcast</a></li>
+	<li id="fridayrebroadcast"><a href="http://www.flcbranson.org/flccurrentweek.php?rebroadcastsite=flcb&rebroadcastday=fri">Friday Rebroadcast</a></li>
 </ul>
-<h2>Sowing Links</h2>
+<h2>External Links (<small>opens in system browser</small>)</h2>
 <ul>
-	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Faith Life Church - Branson, MO</a></li>
-	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('https://faithlifechurchsarasota.thankyou4caring.org/');">Faith Life Church - Sarasota, FL</a></li>
-	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('https://moorelifeministries.thankyou4caring.org/');">Moore Life Ministries - Branson, MO</a></li>
+	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
+	<li><a href="javascript:void(0)" onClick="redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
 </ul>
 <!-- Google Analytics -->
 <script>
