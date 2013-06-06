@@ -60,11 +60,11 @@ fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 <!-- page javascript that isn't required before the page loads -->
 <script>
 function sundayRebroadcast() {
-	window.location = sundayrebroadcastlink;
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=flcb&amp;rebroadcastday=sun";
 }
 
 function fridayRebroadcast() {
-	window.location = fridayrebroadcastlink;
+	window.location = "http://www.flcbranson.org/liveapp/?rebroadcastsite=flcb&amp;rebroadcastday=fri";
 }
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
