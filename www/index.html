@@ -2,7 +2,26 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- makes mobile browsers not zoom by default, not good unless media queries are used for phones -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FLC Live</title>
+<style>
+body { font:italic 1.5em Arial, Helvetica, sans-serif; background-color:#ffffff; background-image:url(images/flcs-bromoorestagefrontmm13-1920x1920.jpg); background-repeat:no-repeat; background-attachment:fixed; background-position:right 100px; background-size:cover; color:#000000; }
+header { position:fixed; top:0; left:0; z-index:9; width:100%; padding:0.5em 0; background:#ffffff; color:#2b3244; }
+h1 { margin:0 auto; width:7em; height:81px; line-height:81px; font-size:2em; background:url(images/Logo-Flc-Transparent-115x81.png) no-repeat right center; }
+h2 { margin-top:0; font-size:1.25em; font-weight:normal; }
+a { color:inherit; text-decoration:none; }
+.box { margin:0 200px 2em 0.5em; padding:1em; background-color:rgba(20, 52, 95, 0.90); color:#ffffff; }
+.box:first-of-type { margin-top:6em; }
+h2 { color:#dba720; }
+dt,
+#featuredseriestitle { color:#3ba8ff; }
+dd { margin:0; }
+#featuredseriestitle { margin-bottom:-1em; }
+#sermons dt { display:none; }
+#externallinks small { display:block;font-size:0.65em; }
+#externallinks ul { list-style:none; padding:0; }
+</style>
 <script>
 // get some JSON data
 function fetchJSONFile(path, callback) {
@@ -20,61 +39,153 @@ function fetchJSONFile(path, callback) {
 }
 
 // tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
+fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data) {
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
 	if (data.status == 'flcb' || data.status == 'flcs') {
-		window.location = "http://www.flcbranson.org/liveapp";
-	}/* else if (data.status == 'off') {
-
-	} else {
-		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
-	}*/
+		window.location = 'http://www.flcbranson.org/liveapp';
+	}
 });
 </script>
 </head>
 <body>
-<h1><abbr title="Faith Life Church">FLC</abbr> Live Broadcast Mobile <abbr title="Application">App</abbr></h1>
-<h2>Full Service Rebroadcasts</h2>
-<p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
-<p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
-<ul>
-	<li><a href="javascript:sundayRebroadcast()">Sunday Rebroadcast</a></li>
-	<li><a href="javascript:fridayRebroadcast()">Friday Rebroadcast</a></li>
-</ul>
-<h2>External Links (<small>opens in system browser</small>)</h2>
-<ul>
-	<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
-	<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
-</ul>
+<header>
+	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>
+</header>
+<section id="livebroadcasts" class="box">
+	<h2>Live Broadcasts</h2>
+	<dl>
+		<dt>Sunday</dt>
+		<dd>9:00 AM &amp; 11:00 AM Central
+		<dt>Friday</dt>
+		<dd>6:30 PM Central</dd>
+	</dl>
+</section>
+<section id="rebroadcasts" class="box">
+	<h2>Rebroadcasts</h2>
+	<dl>
+		<dt>Most Recent, Full Service</dt>
+		<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd>
+		<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd>
+	</dl>
+</section>
+<section id="featuredseries" class="box">
+	<h2>Featured Series</h2>
+	<div id="featuredseriestitle"></div>
+	<div id="sermons"></div>
+</section>
+<section id="externallinks" class="box">
+	<h2>External Links <small>opens in system browser</small></h2>
+	<ul>
+		<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
+		<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
+	</ul>
+</section>
 <!-- page javascript that isn't required before the page loads -->
 <script>
 function sundayRebroadcast() {
 	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data) {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var sundayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.sunday + "&rebroadcastday=sun";
+		var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		window.location = sundayrebroadcastlink;
 	});
 }
 function fridayRebroadcast() {
 	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data) {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var fridayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.friday + "&rebroadcastday=fri";
+		var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		window.location = fridayrebroadcastlink;
 	});
+}
+
+var featuredseries_title, featuredseries_camelcase;
+// tell the function where the JSON data is
+fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
+	// do something with your data
+	// alert(JSON.stringify(data));
+	// alert(data.title + ', ' + data.camelcase);
+	featuredseries_title = data.title;
+	featuredseries_camelcase = data.camelcase;
+	document.getElementById('featuredseriestitle').innerHTML = data.title;
+	loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
+});
+
+function loadXML(url) {
+	var xmlhttp;
+	var x, i, xx;
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			// do something with your data
+			txt = '<div>';
+			x = xmlhttp.responseXML.documentElement.getElementsByTagName('item');
+			for (i = 0; i < x.length; i++) {
+				txt = txt + '<dl>';
+				txt = txt + '<dt>Sermon Title</dt>';
+				xx = x[i].getElementsByTagName('title'); {
+					try {
+						txt = txt + '<dd>Pt. ' + xx[0].firstChild.nodeValue + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Speaker</dt>';
+				xx = x[i].getElementsByTagName('dc:creator'); {
+					try {
+						txt = txt + '<dd style="font-size:0.85em;">' + xx[0].firstChild.nodeValue + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Date Preached</dt>';
+				xx = x[i].getElementsByTagName('pubDate'); {
+					// D is the CultureInfo longDate Format Pattern (dddd, MMMM dd, yyyy)
+					var date = Date.parse(xx[0].firstChild.nodeValue).toString('D');
+					try {
+						txt = txt + '<dd style="font-size:0.65em;">' + date + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Download Link</dt>';
+				xx = x[i].getElementsByTagName('guid'); {
+					try {
+						txt = txt + '<dd><a href="' + xx[0].firstChild.nodeValue + '">Audio (MP3)</a></dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '</dl>';
+			}
+			txt = txt + '</div>';
+			document.getElementById('sermons').innerHTML = txt;
+		}
+	}
+	xmlhttp.open('GET', url, true);
+	xmlhttp.send();
 }
 
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
-	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener('deviceready', onDeviceReady, false);
 	// Cordova is ready
 	function onDeviceReady() {
 		// open URL in default web browser
@@ -84,6 +195,8 @@ function redirectToSystemBrowser(url) {
 </script>
 <!-- required for the redirectToSystemBrowser() function -->
 <script src="phonegap.js"></script>
+<!-- date format conversion (http://code.google.com/p/datejs/) -->
+<script src="http://www.datejs.com/build/date.js"></script>
 <!-- Google Analytics -->
 <script>
 var _gaq = _gaq || [];
