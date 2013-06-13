@@ -5,11 +5,13 @@
 <!-- makes mobile browsers not zoom by default, not good unless media queries are used for phones -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FLC Live</title>
+
+
 <style>
 body { font-style:italic; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; background-repeat:no-repeat; background-attachment:fixed; color:#000000; }
 header { position:fixed; top:0; left:0; z-index:9; width:100%; padding:0.5em 0; background:#ffffff; color:#2b3244; }
 h1 { margin:0 auto; width:7em; height:81px; line-height:81px; font-size:2em; background:url(images/Logo-Flc-Transparent-115x81.png) no-repeat right center; }
-h2 { margin-top:0; font-size:1.25em; font-weight:normal; }
+h2 { color: #3BA8FF; margin-top:0; font-size:1.25em; font-weight:normal; }
 a { color:inherit; text-decoration:none; }
 .box { padding:1em; background-color:rgba(20, 52, 95, 0.90); color:#ffffff; }
 h2 { color:#dba720; }
@@ -49,6 +51,8 @@ body { white-space:nowrap; }
 .box { display:inline-block; vertical-align:top; width:10em; }
 }
 </style>
+
+
 <script>
 // get some JSON data
 function fetchJSONFile(path, callback) {
@@ -75,40 +79,64 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data) {
 	}
 });
 </script>
+
+
 </head>
 <body>
+
+
 <header>
 	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>
 </header>
+
+
 <section id="livebroadcasts" class="box">
 	<h2>Live Broadcasts</h2>
+	<dt>Video will auto-play when FLC Live is opened at the following times</dt>
 	<dl>
-		<dt>Sunday</dt>
-		<dd>9:00 AM &amp; 11:00 AM Central
-		<dt>Friday</dt>
-		<dd>6:30 PM Central</dd>
+		<dd>Sunday</dd>
+		<dd>9:00 AM &amp; 11:00 AM</dd>
+		<dd><small>Central</small></dd>
+	</dl>
+	<dl>
+		<dd>Friday</dd>
+		<dd>6:30 PM</dd>
+		<dd><small>Central</small></dd>
 	</dl>
 </section>
+
+
 <section id="rebroadcasts" class="box">
 	<h2>Rebroadcasts</h2>
+	<dt>Most Recent, Full Service</dt>
 	<dl>
-		<dt>Most Recent, Full Service</dt>
 		<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd>
+	</dl>
+	<dl>
 		<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd>
 	</dl>
 </section>
+
+
 <section id="featuredseries" class="box">
 	<h2>Featured Series</h2>
 	<div id="featuredseriestitle"></div>
 	<div id="sermons"></div>
 </section>
+
+
 <section id="externallinks" class="box">
-	<h2>External Links <small>opens in system browser</small></h2>
+	<h2>External Links</h2>
+	<dt>Opens in system browser</dt>
 	<ul>
 		<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
-		<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
+	</ul>
+	<ul>
+		<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sowing Online</a></li>
 	</ul>
 </section>
+
+
 <!-- page javascript that isn't required before the page loads -->
 <script>
 function sundayRebroadcast() {
