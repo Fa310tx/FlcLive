@@ -19,7 +19,7 @@ dd { margin:0; }
 #sermons dt { display:none; }
 #externallinks small { display:block;font-size:0.65em; }
 #externallinks ul { list-style:none; padding:0; }
-#pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; }
+#pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; background-size:cover; }
 @media screen and (max-width:640px) and (orientation:portrait) {
 .box { margin:0 7em 1em 0.25em; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-320x568.jpg); background-position:right 5em; }
@@ -52,6 +52,7 @@ h1 { width:7em; }
 body { white-space:nowrap; display:table; border-spacing:1em; background:transparent; }
 #boxes { position:absolute; bottom:0; left:0; }
 .box { display:table-cell; vertical-align:top; }
+#sermons { display:none; }
 }
 </style>
 <script>
@@ -149,7 +150,7 @@ fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	featuredseries_title = data.title;
 	featuredseries_camelcase = data.camelcase;
 	document.getElementById('featuredseriestitle').innerHTML = '<a href="#">' + data.title + '</a>';
-	// loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
+	loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
 });
 
 function loadXML(url) {
