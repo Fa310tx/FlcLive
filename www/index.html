@@ -2,9 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<!-- makes mobile browsers not zoom by default, not good unless media queries are used for phones -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FLC Live</title>
+<<<<<<< HEAD
 <style>
 body { font-style:italic; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; color:#000000; }
 header { position:fixed; top:0; left:0; z-index:9; width:100%; padding:0.5em 0; background:#ffffff; color:#2b3244; }
@@ -55,6 +54,8 @@ body { white-space:nowrap; display:table; border-spacing:1em; background:transpa
 #sermons { display:none; }
 }
 </style>
+=======
+>>>>>>> parent of d10ec8c... Windows 8 Design
 <script>
 // get some JSON data
 function fetchJSONFile(path, callback) {
@@ -72,17 +73,22 @@ function fetchJSONFile(path, callback) {
 }
 
 // tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data) {
+fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
 	if (data.status == 'flcb' || data.status == 'flcs') {
-		window.location = 'http://www.flcbranson.org/liveapp';
-	}
+		window.location = "http://www.flcbranson.org/liveapp";
+	}/* else if (data.status == 'off') {
+
+	} else {
+		document.write('<p>It seems that an error has occurred with our live broadcast <abbr title="Application Programming Interface">API</abbr>.  Please contact support through our <a href="flcsupport@moorelife.org">support e-mail address</a> or <a href="tel:+1-417-334-9233">phone number</a>.</p>');
+	}*/
 });
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 <header>
 	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>
 </header>
@@ -118,29 +124,45 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data) {
 	</section>
 </div>
 <div id="pointlessdivforbackgroundimage"></div>
+=======
+<h1><abbr title="Faith Life Church">FLC</abbr> Live Broadcast Mobile <abbr title="Application">App</abbr></h1>
+<h2>Full Service Rebroadcasts</h2>
+<p>Our regularly scheduled on-line broadcasts are available Sunday at 9:00 AM, Sunday at 11:00 AM, and Friday at 6:30 PM Central Time. Please join us.</p>
+<p>However, Faith Life Church services are available in their entirety for a short time. Click below to watch previous services.</p>
+<ul>
+	<li><a href="javascript:sundayRebroadcast()">Sunday Rebroadcast</a></li>
+	<li><a href="javascript:fridayRebroadcast()">Friday Rebroadcast</a></li>
+</ul>
+<h2>External Links (<small>opens in system browser</small>)</h2>
+<ul>
+	<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
+	<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
+</ul>
+>>>>>>> parent of d10ec8c... Windows 8 Design
 <!-- page javascript that isn't required before the page loads -->
 <script>
 function sundayRebroadcast() {
 	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data) {
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
+		var sundayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.sunday + "&rebroadcastday=sun";
 		window.location = sundayrebroadcastlink;
 	});
 }
 function fridayRebroadcast() {
 	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data) {
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
+		var fridayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.friday + "&rebroadcastday=fri";
 		window.location = fridayrebroadcastlink;
 	});
 }
 
+<<<<<<< HEAD
 var featuredseries_title, featuredseries_camelcase;
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
@@ -218,10 +240,12 @@ function loadXML(url) {
 	xmlhttp.send();
 }
 
+=======
+>>>>>>> parent of d10ec8c... Windows 8 Design
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
-	document.addEventListener('deviceready', onDeviceReady, false);
+	document.addEventListener("deviceready", onDeviceReady, false);
 	// Cordova is ready
 	function onDeviceReady() {
 		// open URL in default web browser
@@ -231,8 +255,6 @@ function redirectToSystemBrowser(url) {
 </script>
 <!-- required for the redirectToSystemBrowser() function -->
 <script src="phonegap.js"></script>
-<!-- date format conversion (http://code.google.com/p/datejs/) -->
-<script src="http://www.datejs.com/build/date.js"></script>
 <!-- Google Analytics -->
 <script>
 var _gaq = _gaq || [];
