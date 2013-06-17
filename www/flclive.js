@@ -69,8 +69,8 @@ function loadXML(url) {
 				}
 				txt = txt + '<dt>Date Preached</dt>';
 				xx = x[i].getElementsByTagName('pubDate'); {
-					// D is the CultureInfo longDate Format Pattern (dddd, MMMM dd, yyyy)
-					var date = Date.parse(xx[0].firstChild.nodeValue).toString('D');
+					// date.js (included separately) string format (Sunday, March 05, 2012)
+					var date = Date.parse(xx[0].firstChild.nodeValue).toString('dddd, MMMM dd, yyyy');
 					try {
 						txt = txt + '<dd style="font-size:0.65em;">' + date + '</dd>';
 					}
