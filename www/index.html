@@ -3,12 +3,51 @@
 <head>
 <meta charset="utf-8">
 <title>FLC Live</title>
+<link rel="stylesheet" href="flclive.css">
+</head>
+<body>
+<header>
+	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>
+</header>
+<div id="boxes">
+	<section id="livebroadcasts" class="box">
+		<h2>Live Broadcasts</h2>
+		<dl>
+			<dt>Sunday</dt>
+			<dd>9:00 AM &amp; 11:00 AM Central</dd>
+			<dt>Friday</dt>
+			<dd>6:30 PM Central</dd>
+		</dl>
+	</section>
+	<section id="rebroadcasts" class="box">
+		<h2>Rebroadcasts</h2>
+		<dl>
+			<dt>Most Recent, Full Service</dt>
+			<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd>
+			<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd>
+		</dl>
+	</section>
+	<section id="featuredseries" class="box">
+		<h2>Featured Series</h2>
+		<div id="featuredseriestitle"></div>
+		<div id="sermons"></div>
+	</section>
+	<section id="externallinks" class="box">
+		<h2>External Links <small>opens in system browser</small></h2>
+		<ul>
+			<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
+			<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
+		</ul>
+	</section>
+</div>
+<div id="pointlessdivforbackgroundimage"></div>
+<!-- our javascripts -->
 <script src="flclive.js"></script>
+<!-- used to change the formats of dates -->
+<script src="date.js"></script>
 <!-- required for the redirectToSystemBrowser() function -->
 <script src="phonegap.js"></script>
-<!-- Google analytics plugin
-<script src="GAPlugin.js"></script> -->
-<!-- caused the splash screen to stay visible -->
+<!-- Google Analytics -->
 <script>
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-39575525-1']);
@@ -18,8 +57,6 @@ _gaq.push(['_trackPageview']);
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-</script>
-</head>
-<body>
+</script>	
 </body>
 </html>
