@@ -21,43 +21,51 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	if (data.status == 'flcb' || data.status == 'flcs') {
 		window.location = "http://www.flcbranson.org/liveapp";
 	} else {
-		document.write(' \
-<header> \
-	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1> \
-</header> \
-<div id="boxes"> \
-	<section id="livebroadcasts" class="box"> \
-		<h2>Live Broadcasts</h2> \
-		<dl> \
-			<dt>Sunday</dt> \
-			<dd>9:00 AM &amp; 11:00 AM Central</dd> \
-			<dt>Friday</dt> \
-			<dd>6:30 PM Central</dd> \
-		</dl> \
-	</section> \
-	<section id="rebroadcasts" class="box"> \
-		<h2>Rebroadcasts</h2> \
-		<dl> \
-			<dt>Most Recent, Full Service</dt> \
-			<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd> \
-			<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd> \
-		</dl> \
-	</section> \
-	<section id="featuredseries" class="box"> \
-		<h2>Featured Series</h2> \
-		<div id="featuredseriestitle"></div> \
-		<div id="sermons"></div> \
-	</section> \
-	<section id="externallinks" class="box"> \
-		<h2>External Links <small>opens in system browser</small></h2> \
-		<ul> \
-			<li><a href="javascript:redirectToSystemBrowser(\'http://www.flcbranson.org/\');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li> \
-			<li><a href="javascript:redirectToSystemBrowser(\'https://faithlifechurchbranson.thankyou4caring.org/\');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li> \
-		</ul> \
-	</section> \
-</div> \
-<div id="pointlessdivforbackgroundimage"></div> \
-');
+		document.write('<!DOCTYPE html>\n\
+<html>\n\
+<head>\n\
+<meta charset="utf-8">\n\
+<title>FLC Live</title>\n\
+<link rel="stylesheet" href="flclive.css">\n\
+</head>\n\
+<body>\n\
+<header>\n\
+	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>\n\
+</header>\n\
+<div id="boxes">\n\
+	<section id="livebroadcasts" class="box">\n\
+		<h2>Live Broadcasts</h2>\n\
+		<dl>\n\
+			<dt>Sunday</dt>\n\
+			<dd>9:00 AM &amp; 11:00 AM Central</dd>\n\
+			<dt>Friday</dt>\n\
+			<dd>6:30 PM Central</dd>\n\
+		</dl>\n\
+	</section>\n\
+	<section id="rebroadcasts" class="box">\n\
+		<h2>Rebroadcasts</h2>\n\
+		<dl>\n\
+			<dt>Most Recent, Full Service</dt>\n\
+			<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd>\n\
+			<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd>\n\
+		</dl>\n\
+	</section>\n\
+	<section id="featuredseries" class="box">\n\
+		<h2>Featured Series</h2>\n\
+		<div id="featuredseriestitle"></div>\n\
+		<div id="sermons"></div>\n\
+	</section>\n\
+	<section id="externallinks" class="box">\n\
+		<h2>External Links <small>opens in system browser</small></h2>\n\
+		<ul>\n\
+			<li><a href="javascript:redirectToSystemBrowser(\'http://www.flcbranson.org/\');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>\n\
+			<li><a href="javascript:redirectToSystemBrowser(\'https://faithlifechurchbranson.thankyou4caring.org/\');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>\n\
+		</ul>\n\
+	</section>\n\
+</div>\n\
+<div id="pointlessdivforbackgroundimage"></div>\n\
+</body>\n\
+</html>\n');
 	}
 });
 
