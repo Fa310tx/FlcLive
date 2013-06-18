@@ -19,7 +19,45 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
 	if (data.status == 'flcb' || data.status == 'flcs') {
-		window.location = "http://www.flcbranson.org/liveapp";
+		window.location = 'http://www.flcbranson.org/liveapp';
+	} else {
+		document.getElementById('content').innerHTML = '\
+<header>\n\
+	<h1><abbr title="Faith Life Church">FLC</abbr> Live</h1>\n\
+</header>\n\
+<div id="boxes">\n\
+	<section id="livebroadcasts" class="box">\n\
+		<h2>Live Broadcasts</h2>\n\
+		<dl>\n\
+			<dt>Sunday</dt>\n\
+			<dd>9:00 AM &amp; 11:00 AM Central</dd>\n\
+			<dt>Friday</dt>\n\
+			<dd>6:30 PM Central</dd>\n\
+		</dl>\n\
+	</section>\n\
+	<section id="rebroadcasts" class="box">\n\
+		<h2>Rebroadcasts</h2>\n\
+		<dl>\n\
+			<dt>Most Recent, Full Service</dt>\n\
+			<dd><a href="javascript:sundayRebroadcast();">Sunday</a></dd>\n\
+			<dd><a href="javascript:fridayRebroadcast();">Friday</a></dd>\n\
+		</dl>\n\
+	</section>\n\
+	<section id="featuredseries" class="box">\n\
+		<h2>Featured Series</h2>\n\
+		<div id="featuredseriestitle"></div>\n\
+		<div id="sermons"></div>\n\
+	</section>\n\
+	<section id="externallinks" class="box">\n\
+		<h2>External Links <small>opens in system browser</small></h2>\n\
+		<ul>\n\
+			<li><a href="javascript:redirectToSystemBrowser(\'http://www.flcbranson.org/\');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>\n\
+			<li><a href="javascript:redirectToSystemBrowser(\'https://faithlifechurchbranson.thankyou4caring.org/\');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>\n\
+		</ul>\n\
+	</section>\n\
+</div>\n\
+<div id="pointlessdivforbackgroundimage"></div>\
+';
 	}
 });
 
@@ -103,7 +141,7 @@ function sundayRebroadcast() {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var sundayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.sunday + "&rebroadcastday=sun";
+		var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		window.location = sundayrebroadcastlink;
 	});
 }
@@ -113,7 +151,7 @@ function fridayRebroadcast() {
 		// do something with your data
 		// alert(JSON.stringify(data));
 		// alert(data.sunday + ', ' + data.friday);
-		var fridayrebroadcastlink = "http://www.flcbranson.org/liveapp/?rebroadcastsite=" + data.friday + "&rebroadcastday=fri";
+		var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		window.location = fridayrebroadcastlink;
 	});
 }
@@ -121,10 +159,22 @@ function fridayRebroadcast() {
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function
 function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
-	document.addEventListener("deviceready", onDeviceReady, false);
+	document.addEventListener('deviceready', onDeviceReady, false);
 	// Cordova is ready
 	function onDeviceReady() {
 		// open URL in default web browser
 		var ref = window.open(encodeURI(url), '_system', 'location=yes');
 	}
 }
+
+/* keeps splash screen on if live broadcast is going (some conflict with window.location?)
+// google analytics
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39575525-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+*/
