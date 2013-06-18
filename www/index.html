@@ -29,7 +29,7 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 <header>\n\
 	<h1><a href="index.html"><abbr title="Faith Life Church">FLC</abbr> Live</a></h1>\n\
 </header>\n\
-<div id="boxes">\n\
+<div class="boxeswrapper">\n\
 	<section id="livebroadcasts" class="box">\n\
 		<h2>Live Broadcasts</h2>\n\
 		<dl>\n\
@@ -70,7 +70,7 @@ fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.title + ', ' + data.camelcase);
-	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html#content">' + data.title + '</a>';
+	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + data.title + '</a>';
 	loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
 });
 
