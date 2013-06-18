@@ -24,24 +24,26 @@ body { white-space:nowrap; display:table; border-spacing:1em 0.5em; background:t
 #boxes { position:absolute; bottom:0; left:0; }
 .box { display:table-cell; vertical-align:top; }
 .home #sermons { display:none; }
-#featuredseriestitle { position:fixed; text-align:center; }
+.featuredseries #featuredseriestitle { position:fixed; text-align:center; }
 #pointlessdivforbackgroundimage { background-position:left 3em; }
 }
 @media screen and (max-width:640px) and (orientation:portrait) {
 .box { margin:0 7em 1em 0.25em; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-320x568.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-320x568.jpg); }
 }
 @media screen and (max-height:640px) and (orientation:landscape) {
 header { padding:0.25em 0; }
 h1 { height:1.5em; line-height:1.5em; font-size:1.75em; width:7em; background-size:contain; }
-#featuredseriestitle { top:4em; }
+.featuredseries #featuredseriestitle { top:4em; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-568x320.jpg); }
 }
 @media screen and (max-width:480px) and (orientation:landscape) {
-#featuredseriestitle { left:6.2em; }
+.featuredseries #featuredseriestitle { left:6.2em; }
 }
 @media screen and (min-width:481px) and (max-width:640px) and (orientation:landscape) {
-#featuredseriestitle { left:9.2em; }
+.featuredseries #featuredseriestitle { left:9.2em; }
 }
 @media screen and (min-width:641px) {
 body { font-size:1.5em; }
@@ -50,8 +52,10 @@ h1 { width:6.5em; }
 @media screen and (min-width:641px) and (orientation:portrait) {
 .box { margin:0 9em 2em 1em; }	
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-768x1024.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-768x1024.jpg); }
 }
 @media screen and (min-height:641px) and (orientation:landscape) {
-#featuredseriestitle { top:15em; left:0; width:100%; }
+.featuredseries #featuredseriestitle { top:15em; left:0; width:100%; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-1024x768.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-1024x768.jpg); }
 }
