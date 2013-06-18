@@ -13,12 +13,15 @@
 </head>
 <body>
 <header>
-	<h1 id="featuredseriestitle"></h1>
+	<h1><a href="index.html"><abbr title="Faith Life Church">FLC</abbr> Live</a></h1>
 </header>
-<div id="boxes">
-	<div id="sermons"></div>
+<div id="content">
+	<div id="boxes">
+		<div id="featuredseriestitle" class="box"></div>
+		<div id="sermons"></div>
+	</div>
+	<div id="pointlessdivforbackgroundimage"></div>
 </div>
-<div id="pointlessdivforbackgroundimage"></div>
 <!-- page specific javascripts -->
 <script>
 // tell the function where the JSON data is
@@ -26,7 +29,7 @@ fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.title + ', ' + data.camelcase);
-	document.getElementById('featuredseriestitle').innerHTML = data.title;
+	document.getElementById('featuredseriestitle').innerHTML = '<h2>' + data.title + '</h2>';
 	loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
 });
 
