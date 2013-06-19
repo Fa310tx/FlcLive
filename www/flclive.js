@@ -13,7 +13,18 @@ function fetchJSONFile(path, callback) {
 	httpRequest.send(); 
 }
 
-// gets URL queries ?name1=value1&name2=value2 and turns them into javascript variables
+// window.open wasn't opening a link in the system browser on iOS, so we have to use this function (requires phonegap.js)
+function redirectToSystemBrowser(url) {
+	// Wait for Cordova to load
+	document.addEventListener('deviceready', onDeviceReady, false);
+	// Cordova is ready
+	function onDeviceReady() {
+		// open URL in default web browser
+		var ref = window.open(encodeURI(url), '_system', 'location=yes');
+	}
+}
+
+// get URL queries ?name1=value1&name2=value2 and turns them into javascript variables
 function getQueryVariable(variable) {
 	var query = window.location.search.substring(1);
 	var vars = query.split('&');
@@ -23,17 +34,19 @@ function getQueryVariable(variable) {
 			return pair[1];
 		}
 	}
-return(false);
+	return(false);
 }
 
-/* keeps splash screen on if live broadcast is going (some conflict with window.location?)
-// google analytics
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-39575525-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+/* testing functions
+function yo() {
+	alert('Yo')
+};
+$(document).ready(yo);
 */
+
+
+
+
+
+
+

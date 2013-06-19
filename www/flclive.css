@@ -29,7 +29,6 @@ body { white-space:nowrap; display:table; border-spacing:1em 0.5em; background:t
 .featuredseries .featuredseriestitlewrapper { position:absolute; top:-3em; left:0; height:1em; width:100%; padding:0.5em 0 1em 0; }
 .featuredseries .featuredseriestitlewrapper #featuredseriestitle { position:relative; }
 .featuredseries .featuredseriestitlewrapper #featuredseriestitle h2 { position:fixed; width:100%; text-align:center; }
-.home #sermons { display:none; }
 #pointlessdivforbackgroundimage { background-position:left 3em; }
 }
 @media screen and (max-width:640px) and (orientation:portrait) {

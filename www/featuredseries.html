@@ -62,6 +62,7 @@ function loadXML(url) {
 					}
 				}
 				txt = txt + '<dt>Speaker</dt>';
+				// loads speakers in Internet Explorer but not iOS (maybe a namespace issue)
 				xx = x[i].getElementsByTagName('dc:creator'); {
 					try {
 						txt = txt + '<dd style="font-size:0.85em;">' + xx[0].firstChild.nodeValue + '</dd>';
