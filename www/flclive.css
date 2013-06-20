@@ -13,6 +13,7 @@ dt { color:#3ba8ff; }
 dd { margin:0; }
 /* height:auto and height:100% don't change height for iOS and it puts the controls below the screen bottom for computers and Android */
 video { position:absolute; top:0; left:0; right:0; width:100%; height:100%; }
+.homelogooverlay { display:block; position:absolute; top:5px; right:5px; z-index:9; width:32px; height:23px; text-indent:-9999px; background:url(images/Logo-Flc-Transparent-64x45.png) no-repeat center center; background-size:contain; }
 #sermons dt { display:none; }
 #externallinks small { display:block;font-size:0.65em; }
 #externallinks ul { list-style:none; padding:0; }

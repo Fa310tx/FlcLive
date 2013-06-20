@@ -25,6 +25,7 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	if (data.status == 'flcb' || data.status == 'flcs') {
 		//window.location = 'http://www.flcbranson.org/liveapp';
 		document.getElementById('content').innerHTML = '<video src="' + data.publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
+		document.getElementById('content').innerHTML += '<a class="homelogooverlay" href="index.html">home</a>';
 	} else {
 		document.getElementById('content').innerHTML = '\
 <header>\n\
@@ -93,6 +94,7 @@ function sundayRebroadcast() {
 		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		//window.location = sundayrebroadcastlink;
 		document.getElementById('content').innerHTML = '<video src="' + data.sunday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
+		document.getElementById('content').innerHTML += '<a class="homelogooverlay" href="index.html">home</a>';
 	});
 }
 function fridayRebroadcast() {
@@ -104,6 +106,7 @@ function fridayRebroadcast() {
 		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		//window.location = fridayrebroadcastlink;
 		document.getElementById('content').innerHTML = '<video src="' + data.friday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
+		document.getElementById('content').innerHTML += '<a class="homelogooverlay" href="index.html">home</a>';
 	});
 }
 </script>
