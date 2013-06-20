@@ -15,8 +15,8 @@ dd { margin:0; }
 #externallinks small { display:block;font-size:0.65em; }
 #externallinks ul { list-style:none; padding:0; }
 #pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; }
-#videowrapper { position:absolute; top:0; right:0; bottom:0; left:0; z-index:8; background:rgba(0, 0, 0, 0.5); }
-video { position:absolute; top:10%; right:10%; bottom:10%; left:10%; z-index:9; }
+#videowrapper { position:absolute; top:0; right:0; width:100%; height:100%; z-index:8; background:rgba(0, 0, 0, 0.5); }
+video { position:absolute; top:10%; right:10%; width:80%; height:80%; z-index:9; }
 
 @media screen and (orientation:portrait) {
 .boxeswrapper > .box:first-of-type,

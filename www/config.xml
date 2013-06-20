@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.134">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.135">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 4+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
@@ -27,7 +27,7 @@
 	<preference name="android-installLocation" value="auto" /> <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
 	<!-- Plugins can also be added here.  A list of available plugins are available at https://build.phonegap.com/docs/plugins-->
-	<gap:plugin name="GAPlugin" />
+	<!--<gap:plugin name="GAPlugin" />-->
 
 	<!-- Define app icon for each platform. -->
 	<icon src="images/logo.png" />
