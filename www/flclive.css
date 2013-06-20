@@ -35,12 +35,12 @@ body { white-space:nowrap; display:table; border-spacing:1em 0.5em; background:t
 h1 { background-image:url(images/Logo-Flc-Transparent-72x51.png); }
 .box { margin:0 7em 1em 0.25em; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-320x568.jpg); }
-.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-320x568.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-320x568.jpg); }
 }
 @media screen and (max-height:640px) and (orientation:landscape) {
 h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-64x45.png); }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }
-.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-568x320.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-568x320.jpg); }
 }
 @media screen and (min-width:641px) {
 body { font-size:1.5em; }
@@ -49,9 +49,9 @@ h1 { background-image:url(images/Logo-Flc-Transparent-115x81.png); }
 @media screen and (min-width:641px) and (orientation:portrait) {
 .box { margin:0 9em 2em 1em; }	
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-768x1024.jpg); }
-.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-768x1024.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-768x1024.jpg); }
 }
 @media screen and (min-height:641px) and (orientation:landscape) {
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-1024x768.jpg); }
-.featuredseries #pointlessdivforbackgroundimage { background-image:url(images/marriageenrichment2013-1024x768.jpg); }
+.featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-1024x768.jpg); }
 }
