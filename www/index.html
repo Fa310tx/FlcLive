@@ -89,10 +89,10 @@ function sundayRebroadcast() {
 	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 		// do something with your data
 		// alert(JSON.stringify(data));
-		// alert(data.sunday + ', ' + data.friday);
+		// alert(data.sunday_publishingpoint_hls);
 		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		//window.location = sundayrebroadcastlink;
-		document.getElementById('content').innerHTML = '<video src="' + data.sunday_publishingpoint_smoothstreaming + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
+		document.getElementById('content').innerHTML = '<video src="' + data.sunday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
 	});
 }
 function fridayRebroadcast() {
@@ -100,10 +100,10 @@ function fridayRebroadcast() {
 	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
 		// do something with your data
 		// alert(JSON.stringify(data));
-		// alert(data.sunday + ', ' + data.friday);
+		// alert(data.friday_publishingpoint_smoothstreaming);
 		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		//window.location = fridayrebroadcastlink;
-		document.getElementById('content').innerHTML = '<video src="' + data.friday_publishingpoint_smoothstreaming + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
+		document.getElementById('content').innerHTML = '<video src="' + data.friday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video>';
 	});
 }
 </script>
