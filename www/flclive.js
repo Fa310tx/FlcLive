@@ -9,6 +9,7 @@ function fetchJSONFile(path, callback) {
 			}
 		}
 	};
+	// false tells it to be synchronous instead of asynchronous
 	httpRequest.open('GET', path, false);
 	httpRequest.send(); 
 }
@@ -22,6 +23,15 @@ function redirectToSystemBrowser(url) {
 		// open URL in default web browser
 		var ref = window.open(encodeURI(url), '_system', 'location=yes');
 	}
+}
+
+// opens and closes the video lightbox (jquery)
+function openVideo(url) {
+	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
+}
+function closeVideo() {
+	$('#videowrapper video')[0].pause();
+	$('#videowrapper').remove();
 }
 
 // get URL queries ?name1=value1&name2=value2 and turns them into javascript variables

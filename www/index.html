@@ -57,7 +57,7 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// alert(data.datetime + ', ' + data.status);
 	if (data.status == 'flcb' || data.status == 'flcs') {
 		//window.location = 'http://www.flcbranson.org/liveapp';
-		$('body').append('<div id="videowrapper" onclick="$(this).hide();"><video src="' + data.publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video></div>');
+		openVideo(data.publishingpoint_hls);
 	}
 });
 
@@ -77,7 +77,7 @@ function sundayRebroadcast() {
 		//alert(data.sunday_publishingpoint_hls);
 		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		//window.location = sundayrebroadcastlink;
-		$('body').append('<div id="videowrapper" onclick="$(this).hide();"><video src="' + data.sunday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video></div>');
+		openVideo(data.sunday_publishingpoint_hls);
 	});
 }
 function fridayRebroadcast() {
@@ -88,17 +88,8 @@ function fridayRebroadcast() {
 		//alert(data.friday_publishingpoint_hls);
 		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		//window.location = fridayrebroadcastlink;
-		$('body').append('<div id="videowrapper" onclick="$(this).remove();"><video src="' + data.friday_publishingpoint_hls + '"  poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop>Please visit the <a href="http://www.flcbranson.org">Faith Life Church website</a> with a compatible device or computer to watch our live service.</video></div>');
+		openVideo(data.friday_publishingpoint_hls);
 	});
-}
-
-function openVideo(url) {
-	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
-}
-
-function closeVideo() {
-	$('#videowrapper video')[0].pause();
-	$('#videowrapper').remove();
 }
 </script>
 </body>
