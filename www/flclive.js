@@ -26,12 +26,37 @@ function redirectToSystemBrowser(url) {
 }
 
 // opens and closes the video lightbox (jquery)
-function openVideo(url) {
+function openStreamingVideo(url) {
 	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
+}
+function openMp3Video(url) {
+	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/' + basename(url, '.mp3') + '.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
+}
+function openMp4Video(url) {
+	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/' + basename(url, '.mp4') + '.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
 }
 function closeVideo() {
 	$('#videowrapper video')[0].pause();
 	$('#videowrapper').remove();
+	document.location.reload(true);
+}
+
+// a JavaScript equivalent of PHP’s basename() function
+function basename(path, suffix) {
+	// http://kevin.vanzonneveld.net
+	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	// +   improved by: Ash Searle (http://hexmen.com/blog/)
+	// +   improved by: Lincoln Ramsay
+	// +   improved by: djmix
+	// *     example 1: basename('/www/site/home.htm', '.htm');
+	// *     returns 1: 'home'
+	// *     example 2: basename('ecra.php?p=1');
+	// *     returns 2: 'ecra.php?p=1'
+	var b = path.replace(/^.*[\/\\]/g, '');
+	if (typeof(suffix) == 'string' && b.substr(b.length - suffix.length) == suffix) {
+		b = b.substr(0, b.length - suffix.length);
+	}
+	return b;
 }
 
 // get URL queries ?name1=value1&name2=value2 and turns them into javascript variables

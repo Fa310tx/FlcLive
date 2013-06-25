@@ -85,7 +85,7 @@ function loadXML(url) {
 				txt = txt + '<dt>Download Link</dt>';
 				xx = x[i].getElementsByTagName('guid'); {
 					try {
-						txt = txt + '<dd><a href="' + xx[0].firstChild.nodeValue + '">Audio (MP3)</a></dd>';
+						txt = txt + '<dd><a href="javascript:openMp3Video(' + xx[0].firstChild.nodeValue + ')">Audio (MP3)</a></dd>';
 					}
 					catch (er) {
 						txt = txt + '<dd> </dd>';
