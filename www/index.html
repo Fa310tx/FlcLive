@@ -59,7 +59,7 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// alert(data.datetime + ', ' + data.status);
 	if (data.status == 'flcb' || data.status == 'flcs') {
 		//window.location = 'http://www.flcbranson.org/liveapp';
-		openStreamingVideo(data.publishingpoint_hls);
+		openVideo(data.publishingpoint_hls);
 	}
 });
 
@@ -79,7 +79,7 @@ function sundayRebroadcast() {
 		//alert(data.sunday_publishingpoint_hls);
 		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
 		//window.location = sundayrebroadcastlink;
-		openStreamingVideo(data.sunday_publishingpoint_hls);
+		openVideo(data.sunday_publishingpoint_hls);
 	});
 }
 function fridayRebroadcast() {
@@ -90,7 +90,7 @@ function fridayRebroadcast() {
 		//alert(data.friday_publishingpoint_hls);
 		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
 		//window.location = fridayrebroadcastlink;
-		openStreamingVideo(data.friday_publishingpoint_hls);
+		openVideo(data.friday_publishingpoint_hls);
 	});
 }
 </script>

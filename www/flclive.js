@@ -26,14 +26,9 @@ function redirectToSystemBrowser(url) {
 }
 
 // opens and closes the video lightbox (jquery)
-function openStreamingVideo(url) {
-	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/Flcb.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
-}
-function openMp3Video(url) {
-	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/' + basename(url, '.mp3') + '.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
-}
-function openMp4Video(url) {
-	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="http://www.flcbranson.org/images/Posters/' + basename(url, '.mp4') + '.jpg" autoplay controls x-webkit-airplay="allow" loop></video></div>');
+function openVideo(url) {
+	poster = 'http://www.flcbranson.org/images/Posters/Flcb.jpg';
+	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="' + poster + '" autoplay controls x-webkit-airplay="allow" loop></video></div>');
 }
 function closeVideo() {
 	$('#videowrapper video')[0].pause();
