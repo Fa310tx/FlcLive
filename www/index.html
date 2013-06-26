@@ -20,56 +20,69 @@
 <div class="boxeswrapper">
 	<section id="livebroadcasts" class="box">
 		<h2>Live Broadcasts</h2>
-		<p>Join us live at the following times:</p>
-		<dl>
-			<dt>Sunday</dt>
-			<dd>9:00 AM &amp; 11:00 AM <span class="timezone">Central Time</span></dd>
-			<dt>Friday</dt>
-			<dd>6:30 PM <span class="timezone">Central Time</span></dd>
-		</dl>
+		<p>Join us at these times</p>
+		<ul>
+			<li>Sundays @ 9:00 AM &amp; 11:00 AM <span class="timezone">Central Time</span></li>
+			<li>Fridays @ 6:30 PM <span class="timezone">Central Time</span></li>
+		</ul>
+		<div id="nextinternetbroadcast" class="link"></div>
 	</section>
 	<section id="rebroadcasts" class="box">
 		<h2>Rebroadcasts</h2>
 		<p>Most Recent, Full Service</p>
 		<ul>
-			<li><a href="javascript:sundayRebroadcast();">Sunday</a></li>
-			<li><a href="javascript:fridayRebroadcast();">Friday</a></li>
+			<li class="link"><a href="javascript:sundayRebroadcast();">Sunday</a></li>
+			<li class="link"><a href="javascript:fridayRebroadcast();">Friday</a></li>
 		</ul>
 	</section>
 	<section id="featuredseries" class="box">
 		<h2>Featured Series</h2>
-		<div id="featuredseriestitle"></div>
+		<div id="featuredseriestitle" class="link"></div>
 	</section>
 	<section id="externallinks" class="box">
 		<h2>External Links</h2>
 		<p>Opens in system browser</p>
 		<ul>
-			<li><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
-			<li><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
+			<li class="link"><a href="javascript:redirectToSystemBrowser('http://www.flcbranson.org/');">Official <abbr title="Faith Life Church">FLC</abbr> Website</a></li>
+			<li class="link"><a href="javascript:redirectToSystemBrowser('https://faithlifechurchbranson.thankyou4caring.org/');">Sow to <abbr title="Faith Life Church">FLC</abbr></a></li>
 		</ul>
 	</section>
 </div>
 <div id="pointlessdivforbackgroundimage"></div>
 <!-- page specific javascripts -->
 <script>
+// set a global javascript variable
+var livepublishingpoint, nextlivebroadcast;
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.datetime + ', ' + data.status);
+	nextlivebroadcast = data.nextbroadcast;
 	if (data.status == 'flcb' || data.status == 'flcs') {
+		// define the global variable (only works when using synchronous connections)
+		livepublishingpoint = data.publishingpoint_hls;
 		//window.location = 'http://www.flcbranson.org/liveapp';
-		openVideo(data.publishingpoint_hls);
+		openVideo(livepublishingpoint);
 	}
 });
+// see if the global variable is still set (would say "undefined" if using an asychronous connection)
+//alert(livepublishingpoint);
 
+// set a global javascript variable
+var featuredseries, featuredseries_camelcase;
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// do something with your data
 	// alert(JSON.stringify(data));
 	// alert(data.title + ', ' + data.camelcase);
+	// define the global variable (only works when using synchronous connections)
+	featuredseries = data.title;
+	featuredseries_camelcase = data.camelcase;
 	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + data.title + '</a>';
 });
+// see if the global variable is still set (would say "undefined" if using an asychronous connection)
+//alert(featuredseries + ', ' + featuredseries_camelcase);
 
 function sundayRebroadcast() {
 	// tell the function where the JSON data is
@@ -93,6 +106,9 @@ function fridayRebroadcast() {
 		openVideo(data.friday_publishingpoint_hls);
 	});
 }
+
+// live broadcast countdown
+cdtd(nextlivebroadcast);
 </script>
 </body>
 </html>
