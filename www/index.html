@@ -63,49 +63,11 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 		// define the global variable (only works when using synchronous connections)
 		livepublishingpoint = data.publishingpoint_hls;
 		//window.location = 'http://www.flcbranson.org/liveapp';
-		openVideo(livepublishingpoint);
+		openVideo(livepublishingpoint, "http://www.flcbranson.org/images/Posters/Flcb.jpg");
 	}
 });
 // see if the global variable is still set (would say "undefined" if using an asychronous connection)
 //alert(livepublishingpoint);
-
-// set a global javascript variable
-var featuredseries, featuredseries_camelcase;
-// tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
-	// do something with your data
-	// alert(JSON.stringify(data));
-	// alert(data.title + ', ' + data.camelcase);
-	// define the global variable (only works when using synchronous connections)
-	featuredseries = data.title;
-	featuredseries_camelcase = data.camelcase;
-	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + data.title + '</a>';
-});
-// see if the global variable is still set (would say "undefined" if using an asychronous connection)
-//alert(featuredseries + ', ' + featuredseries_camelcase);
-
-function sundayRebroadcast() {
-	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-		// do something with your data
-		// alert(JSON.stringify(data));
-		//alert(data.sunday_publishingpoint_hls);
-		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
-		//window.location = sundayrebroadcastlink;
-		openVideo(data.sunday_publishingpoint_hls);
-	});
-}
-function fridayRebroadcast() {
-	// tell the function where the JSON data is
-	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
-		// do something with your data
-		// alert(JSON.stringify(data));
-		//alert(data.friday_publishingpoint_hls);
-		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
-		//window.location = fridayrebroadcastlink;
-		openVideo(data.friday_publishingpoint_hls);
-	});
-}
 
 // live broadcast countdown
 cdtd(nextlivebroadcast);

@@ -1,4 +1,4 @@
-// get some JSON data
+// generic get JSON data function
 function fetchJSONFile(path, callback) {
 	var httpRequest = new XMLHttpRequest();
 	httpRequest.onreadystatechange = function() {
@@ -14,6 +14,45 @@ function fetchJSONFile(path, callback) {
 	httpRequest.send(); 
 }
 
+// set a global javascript variable
+var featuredseries, featuredseries_camelcase;
+// tell the function where the JSON data is
+fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
+	// do something with your data
+	// alert(JSON.stringify(data));
+	// alert(data.title + ', ' + data.camelcase);
+	// define the global variable (only works when using synchronous connections)
+	featuredseries = data.title;
+	featuredseries_camelcase = data.camelcase;
+	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + data.title + '</a>';
+});
+// see if the global variable is still set (would say "undefined" if using an asychronous connection)
+//alert(featuredseries + ', ' + featuredseries_camelcase);
+
+// full service rebroadcasts
+function sundayRebroadcast() {
+	// tell the function where the JSON data is
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+		// do something with your data
+		// alert(JSON.stringify(data));
+		//alert(data.sunday_publishingpoint_hls);
+		//var sundayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.sunday + '&rebroadcastday=sun';
+		//window.location = sundayrebroadcastlink;
+		openVideo(data.sunday_publishingpoint_hls);
+	});
+}
+function fridayRebroadcast() {
+	// tell the function where the JSON data is
+	fetchJSONFile('http://www.flcbranson.org/api/rebroadcast', function(data){
+		// do something with your data
+		// alert(JSON.stringify(data));
+		//alert(data.friday_publishingpoint_hls);
+		//var fridayrebroadcastlink = 'http://www.flcbranson.org/liveapp/?rebroadcastsite=' + data.friday + '&rebroadcastday=fri';
+		//window.location = fridayrebroadcastlink;
+		openVideo(data.friday_publishingpoint_hls);
+	});
+}
+
 // window.open wasn't opening a link in the system browser on iOS, so we have to use this function (requires phonegap.js)
 function redirectToSystemBrowser(url) {
 	// Wait for Cordova to load
@@ -26,32 +65,13 @@ function redirectToSystemBrowser(url) {
 }
 
 // opens and closes the video lightbox (jquery)
-function openVideo(url) {
-	poster = 'http://www.flcbranson.org/images/Posters/Flcb.jpg';
+function openVideo(url, poster) {
 	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="' + poster + '" autoplay controls x-webkit-airplay="allow" loop></video></div>');
 }
 function closeVideo() {
 	$('#videowrapper video')[0].pause();
 	$('#videowrapper').remove();
 	document.location.reload(true);
-}
-
-// a JavaScript equivalent of PHP’s basename() function
-function basename(path, suffix) {
-	// http://kevin.vanzonneveld.net
-	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-	// +   improved by: Ash Searle (http://hexmen.com/blog/)
-	// +   improved by: Lincoln Ramsay
-	// +   improved by: djmix
-	// *     example 1: basename('/www/site/home.htm', '.htm');
-	// *     returns 1: 'home'
-	// *     example 2: basename('ecra.php?p=1');
-	// *     returns 2: 'ecra.php?p=1'
-	var b = path.replace(/^.*[\/\\]/g, '');
-	if (typeof(suffix) == 'string' && b.substr(b.length - suffix.length) == suffix) {
-		b = b.substr(0, b.length - suffix.length);
-	}
-	return b;
 }
 
 // start javascript countdown (http://www.developphp.com/view.php?tid=1248)
@@ -86,6 +106,34 @@ function cdtd(broadcast) {
 	var timer = setTimeout(function() { cdtd(broadcast); }, 1000);
 }
 
+// google analytics
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-39575525-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+// a JavaScript equivalent of PHP’s basename() function
+function basename(path, suffix) {
+	// http://kevin.vanzonneveld.net
+	// +   original by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+	// +   improved by: Ash Searle (http://hexmen.com/blog/)
+	// +   improved by: Lincoln Ramsay
+	// +   improved by: djmix
+	// *     example 1: basename('/www/site/home.htm', '.htm');
+	// *     returns 1: 'home'
+	// *     example 2: basename('ecra.php?p=1');
+	// *     returns 2: 'ecra.php?p=1'
+	var b = path.replace(/^.*[\/\\]/g, '');
+	if (typeof(suffix) == 'string' && b.substr(b.length - suffix.length) == suffix) {
+		b = b.substr(0, b.length - suffix.length);
+	}
+	return b;
+}
+
 // get URL queries ?name1=value1&name2=value2 and turns them into javascript variables
 function getQueryVariable(variable) {
 	var query = window.location.search.substring(1);
@@ -99,26 +147,10 @@ function getQueryVariable(variable) {
 	return(false);
 }
 
-// google analytics
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-39575525-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-
 /* testing functions
 function yo() {
 	alert('Yo')
 };
 $(document).ready(yo);
 */
-
-
-
-
-
-
 

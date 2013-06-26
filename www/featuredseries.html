@@ -28,14 +28,8 @@
 <div id="pointlessdivforbackgroundimage"></div>
 <!-- page specific javascripts -->
 <script>
-// tell the function where the JSON data is
-fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
-	// do something with your data
-	// alert(JSON.stringify(data));
-	// alert(data.title + ', ' + data.camelcase);
-	document.getElementById('featuredseriestitle').innerHTML = '<h2>' + data.title + '</h2>';
-	loadXML('http://www.flcbranson.org/rss/' + data.camelcase + '.xml');
-});
+document.getElementById('featuredseriestitle').innerHTML = '<h2>' + featuredseries + '</h2>';
+loadXML('http://www.flcbranson.org/rss/' + featuredseries_camelcase + '.xml');
 
 function loadXML(url) {
 	var xmlhttp;
@@ -87,7 +81,7 @@ function loadXML(url) {
 				txt = txt + '<dt>Download Link</dt>';
 				xx = x[i].getElementsByTagName('guid'); {
 					try {
-						txt = txt + '<dd><a href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\');">Audio (MP3)</a></dd>';
+						txt = txt + '<dd><a href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\', \'http://www.flcbranson.org/images/Posters/' + basename(featuredseries_camelcase) + '.jpg\');">Audio (MP3)</a></dd>';
 					}
 					catch (er) {
 						txt = txt + '<dd> </dd>';
