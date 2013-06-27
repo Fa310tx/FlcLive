@@ -32,7 +32,7 @@ h1 { margin:0 auto; padding:0.4em 0; width:6.5em; font-size:2em; background-repe
 h1 a { display:block; width:100%; }
 .box { padding:1em; text-align:center; background-color:rgba(20, 52, 95, 0.90); color:#ffffff; }
 .box a { display:block; width:100%; padding:1em 0; }
-.link { margin:1em 0; width:calc(100% - 4px); background:#0066c3; border:2px solid #3e9df7; }
+.link { margin:1em 0; width:-webkit-calc(100% - 4px); width:calc(100% - 4px); background:#0066c3; border:2px solid #3e9df7; }
 .link.notlive { background:#404040; border:2px solid #c8c8c8;}
 .timezone { display:block; font-size:0.85em; }
 h2 { font-size:1.25em; font-weight:normal; color:#dba720; }
@@ -50,7 +50,7 @@ video { width:100%; height:100%; }
 #nextinternetbroadcast .seconds:after { content:""; }
 #sermons dt { display:none; }
 .lightbox { position:fixed; top:0; right:0; bottom:0; left:0; z-index:8; white-space:normal; background:rgba(0, 0, 0, 0.5); text-align:center; }
-.lightbox .close { position:absolute; top:calc(10% + 0.5em); right:calc(10% + 0.5em); z-index:9; padding:0 0.25em 0 0.25em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
+.lightbox .close { position:absolute; top:-webkit-calc(10% + 0.5em); top:calc(10% + 0.5em); right:-webkit-calc(10% + 0.5em); right:calc(10% + 0.5em); z-index:9; padding:0 0.25em 0 0.25em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
 .lightboxcontent { position:absolute; z-index:8; background:rgba(0, 0, 0, 0.8); color:#ffffff; border-top:1em solid #000000; }
 .lightboxcontent/*.video*/ { top:10%; right:10%; bottom:10%; left:10%; }
 /*.lightboxcontent.servicetimes { padding:2em; top:3.6em; right:0; bottom:0; left:0; }*/
@@ -86,6 +86,7 @@ h1 { background-image:url(images/Logo-Flc-Transparent-64x45.png); }
 /* h1 and .back share font-size and padding */
 h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-57x40.png); }
 .back { font-size:1.75em; }
+.boxeswrapper > .box:first-of-type { margin-left:7em; }
 .box a,
 #nextinternetbroadcast { padding:0.5em 0; }
 .pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }

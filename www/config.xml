@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.146">
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" id = "org.flcbranson.flclive" version = "0.148">
 	<name>FLC Live</name>
 	<description>Faith Life Church live service app for iOS and Android 4+.  Created with PhoneGap / GitHub.</description>
 	<author href="http://www.flcbranson.org" email="jjackson@moorelife.org">Joshua Jackson</author>
@@ -10,7 +10,7 @@
 	<!-- Customize your app and platform with the preference element. -->
 	<!-- If you do not want any permissions to be added to your app, add the following tag to your config.xml; you will still have the INTERNET permission on your app, which PhoneGap requires. -->
 	<preference name="permissions" value="none"/>
-	<preference name="phonegap-version" value="2.7.0" /> <!-- all: current version of PhoneGap -->
+	<preference name="phonegap-version" value="2.9.0" /> <!-- all: current version of PhoneGap -->
 	<preference name="orientation" value="default" /> <!-- all: default means both landscape and portrait are enabled -->
 	<preference name="target-device" value="universal" /> <!-- all: possible values handset, tablet, or universal -->
 	<preference name="fullscreen" value="false" /> <!-- all: hides the status bar at the top of the screen -->
