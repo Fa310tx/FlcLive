@@ -65,12 +65,31 @@ function redirectToSystemBrowser(url) {
 
 // opens and closes the video lightbox (jquery)
 function openVideo(url, poster) {
-	$('body').append('<div id="videowrapper" onclick="closeVideo();"><a href="javascript:void(0)" onclick="closeVideo();">x</a><video src="' + url + '" poster="' + poster + '" autoplay controls x-webkit-airplay="allow" loop></video></div>');
+	if (poster === undefined) poster = "http://www.flcbranson.org/images/Posters/Flcb.jpg";
+	$('body').append('<div class="lightbox" onclick="closeVideo();"><a class="close" href="javascript:void(0)" onclick="closeVideo();">x</a></div>');
+	$('.lightbox').append('<div class="lightboxcontent"></div>');
+	$('.lightboxcontent').append('<video src="' + url + '" poster="' + poster + '" autoplay controls x-webkit-airplay="allow" loop></video>');
 }
 function closeVideo() {
-	$('#videowrapper video')[0].pause();
-	$('#videowrapper').remove();
+	$('.lightbox video')[0].pause();
+	$('.lightbox').remove();
 	document.location.reload(true);
+}
+
+// opens and closes the service times lightbox (jquery)
+function openServiceTimes() {
+	$('body').append('<div class="lightbox" onclick="closeServiceTimes();"><a class="close" href="javascript:void(0)" onclick="closeServiceTimes();">x</a></div>');
+	$('.lightbox').append('<div class="lightboxcontent"></div>');
+	$('.lightboxcontent').append('\
+	<dl>\n\
+		<dt>Service Times</dt>\n\
+		<dd>Sundays @ 9:00 AM & 11:00 AM <span class="timezone">Central Time</span></dd>\n\
+		<dd>Fridays @ 6:00 PM <span class="timezone">Central Time</span></dd>\n\
+	</dl>\
+	');
+}
+function closeServiceTimes() {
+	$('.lightbox').remove();
 }
 
 // start javascript countdown (http://www.developphp.com/view.php?tid=1248)
