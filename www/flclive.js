@@ -67,7 +67,7 @@ function redirectToSystemBrowser(url) {
 function openVideo(url, poster) {
 	if (poster === undefined) poster = "http://www.flcbranson.org/images/Posters/Flcb.jpg";
 	$('body').append('<div class="lightbox" onclick="closeVideo();"><a class="close" href="javascript:void(0)" onclick="closeVideo();">x</a></div>');
-	$('.lightbox').append('<div class="lightboxcontent"></div>');
+	$('.lightbox').append('<div class="lightboxcontent video"></div>');
 	$('.lightboxcontent').append('<video src="' + url + '" poster="' + poster + '" autoplay controls x-webkit-airplay="allow" loop></video>');
 }
 function closeVideo() {
@@ -79,13 +79,14 @@ function closeVideo() {
 // opens and closes the service times lightbox (jquery)
 function openServiceTimes() {
 	$('body').append('<div class="lightbox" onclick="closeServiceTimes();"><a class="close" href="javascript:void(0)" onclick="closeServiceTimes();">x</a></div>');
-	$('.lightbox').append('<div class="lightboxcontent"></div>');
+	$('.lightbox').append('<div class="lightboxcontent servicetimes"></div>');
 	$('.lightboxcontent').append('\
 	<dl>\n\
 		<dt>Service Times</dt>\n\
 		<dd>Sundays @ 9:00 AM & 11:00 AM <span class="timezone">Central Time</span></dd>\n\
 		<dd>Fridays @ 6:00 PM <span class="timezone">Central Time</span></dd>\n\
-	</dl>\
+	</dl>\n\
+	<p>Opening <abbr title="Faith Life Church">FLC</abbr> Live during these times will connect you directly to our live service broadcasts.</p>\
 	');
 }
 function closeServiceTimes() {
@@ -112,7 +113,7 @@ function cdtd(broadcast) {
 	minutes %= 60;
 	seconds %= 60;
 	document.getElementById('nextinternetbroadcast').className += " notlive";
-	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span> ' + hours + ':' + minutes + ':' + seconds + '';
+	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span><span class="hours">' + hours + '</span><span class="minutes">' + minutes + '</span><span class="seconds">' + seconds + '</span>';
 	/*
 	// if you want to break out the time bits (useful if you want to be able to shorten (D)ays and such
 	document.getElementById("daysBox").innerHTML = days + " D";
