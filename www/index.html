@@ -48,7 +48,10 @@
 		</ul>
 	</section>
 </div>
-<div id="pointlessdivforbackgroundimage"></div>
+<!-- background image has to be done this way because of an iOS issue with background:fixed -->
+<div class="pointlessdivforbackgroundimage"></div>
+<!-- back button -->
+<div class="back" onclick="window.history.back();">&lt;</div>
 <!-- page specific javascripts -->
 <script>
 // set a global javascript variable
