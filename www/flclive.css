@@ -22,9 +22,10 @@ input, select { vertical-align:middle; }
 
 /* app styles */
 body { font-style:italic; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; color:#000000; }
-a { color:inherit; text-decoration:none; }
 header { position:fixed; top:0; left:0; z-index:5; width:100%; background:#ffffff; color:#2b3244; }
-h1 { margin:0 auto; padding:0.4em 0; width:7em; font-size:2em; background-repeat:no-repeat; background-position:right center; }
+a { color:inherit; text-decoration:none; }
+abbr[title], dfn[title] { border:none; cursor:pointer; }
+h1 { margin:0 auto; padding:0.4em 0; width:6.5em; font-size:2em; background-repeat:no-repeat; background-position:right center; }
 h1 a { display:block; width:100%; }
 .box { padding:1em; text-align:center; background-color:rgba(20, 52, 95, 0.90); color:#ffffff; }
 .box a { display:block; width:100%; padding:1em 0; }
@@ -38,9 +39,10 @@ dt,
 li,
 .home #featuredseriestitle { margin-top:1em; }
 #nextinternetbroadcast { padding:1em 0; text-transform:capitalize; }
-#nextinternetbroadcast .days:after { content:" Days"; }
-#nextinternetbroadcast .hours:after { content:" Hours"; }
-#nextinternetbroadcast .minutes:after { content:" Minutes"; }
+#nextinternetbroadcast .days:after,
+#nextinternetbroadcast .hours:after,
+#nextinternetbroadcast .minutes:after,
+#nextinternetbroadcast .seconds:after { color:#757575; }
 #sermons dt { display:none; }
 #videowrapper { position:fixed; top:0; right:0; bottom:0; left:0; z-index:8; background:rgba(0, 0, 0, 0.5); }
 #videowrapper a { position:absolute; top:10%; right:10%; z-index:9; padding:0 1em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; }
@@ -63,24 +65,32 @@ body { white-space:nowrap; display:table; border-spacing:1em 0.5em; background:t
 #pointlessdivforbackgroundimage { background-position:left 3em; }
 }
 @media screen and (max-width:640px) and (orientation:portrait) {
-h1 { background-image:url(images/Logo-Flc-Transparent-72x51.png); }
+h1 { background-image:url(images/Logo-Flc-Transparent-64x45.png); }
 .box { margin:0 7em 1em 0.25em; }
 #livebroadcasts .timezone { display:block; }
-#nextinternetbroadcast .days:after { content:" d"; }
-#nextinternetbroadcast .hours:after { content:" h"; }
-#nextinternetbroadcast .minutes:after { content:" m"; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-320x568.jpg); }
 .featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-320x568.jpg); }
 }
 @media screen and (max-height:640px) and (orientation:landscape) {
-h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-64x45.png); }
-.box a { padding:0.5em; }
+h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-57x57.png); }
+.box a,
+#nextinternetbroadcast { padding:0.5em 0; }
 #pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }
 .featuredseries #pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-568x320.jpg); }
 }
+@media screen and (max-width:640px) {
+#nextinternetbroadcast .days:after { content:"d"; }
+#nextinternetbroadcast .hours:after { content:"h"; }
+#nextinternetbroadcast .minutes:after { content:"m"; }
+#nextinternetbroadcast .seconds:after { content:"s"; }
+}
 @media screen and (min-width:641px) {
 body { font-size:1.5em; }
-h1 { background-image:url(images/Logo-Flc-Transparent-115x81.png); }
+h1 { background-image:url(images/Logo-Flc-White-100x100.jpg); }
+#nextinternetbroadcast .days:after { content:"days"; }
+#nextinternetbroadcast .hours:after { content:"hours"; }
+#nextinternetbroadcast .minutes:after { content:"minutes"; }
+#nextinternetbroadcast .seconds:after { content:"seconds"; }
 }
 @media screen and (min-width:641px) and (orientation:portrait) {
 .box { margin:0 9em 2em 1em; }	

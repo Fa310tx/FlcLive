@@ -28,74 +28,10 @@
 <div id="pointlessdivforbackgroundimage"></div>
 <!-- page specific javascripts -->
 <script>
+// show the featured series title
 document.getElementById('featuredseriestitle').innerHTML = '<h2>' + featuredseries + '</h2>';
+// show the featured series sermons
 loadXML('http://www.flcbranson.org/rss/' + featuredseries_camelcase + '.xml');
-
-function loadXML(url) {
-	var xmlhttp;
-	var x, i, xx;
-	if (window.XMLHttpRequest) {
-		// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	} else {
-		// code for IE6, IE5
-		xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
-	}
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			// do something with your data
-			txt = '<div>';
-			x = xmlhttp.responseXML.documentElement.getElementsByTagName('item');
-			for (i = 0; i < x.length; i++) {
-				txt = txt + '<dl class="box">';
-				txt = txt + '<dt>Sermon Title</dt>';
-				xx = x[i].getElementsByTagName('title'); {
-					try {
-						txt = txt + '<dd>Pt. ' + xx[0].firstChild.nodeValue + '</dd>';
-					}
-					catch (er) {
-						txt = txt + '<dd> </dd>';
-					}
-				}
-				txt = txt + '<dt>Speaker</dt>';
-				// loads speakers in Internet Explorer but not iOS (maybe a namespace issue)
-				xx = x[i].getElementsByTagName('dc:creator'); {
-					try {
-						txt = txt + '<dd style="font-size:0.85em;">' + xx[0].firstChild.nodeValue + '</dd>';
-					}
-					catch (er) {
-						txt = txt + '<dd> </dd>';
-					}
-				}
-				txt = txt + '<dt>Date Preached</dt>';
-				xx = x[i].getElementsByTagName('pubDate'); {
-					// date.js (included separately) string format (Sunday, March 05, 2012)
-					var date = Date.parse(xx[0].firstChild.nodeValue).toString('dddd, MMMM dd, yyyy');
-					try {
-						txt = txt + '<dd style="font-size:0.65em;">' + date + '</dd>';
-					}
-					catch (er) {
-						txt = txt + '<dd> </dd>';
-					}
-				}
-				txt = txt + '<dt>Download Link</dt>';
-				xx = x[i].getElementsByTagName('guid'); {
-					try {
-						txt = txt + '<dd><a href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\', \'http://www.flcbranson.org/images/Posters/' + basename(featuredseries_camelcase) + '.jpg\');">Audio (MP3)</a></dd>';
-					}
-					catch (er) {
-						txt = txt + '<dd> </dd>';
-					}
-				}
-				txt = txt + '</dl>';
-			}
-			txt = txt + '</div>';
-			document.getElementById('sermons').innerHTML = txt;
-		}
-	}
-	xmlhttp.open('GET', url, true);
-	xmlhttp.send();
-}
 </script>
 </body>
 </html>

@@ -20,16 +20,15 @@
 <div class="boxeswrapper">
 	<section id="livebroadcasts" class="box">
 		<h2>Live Broadcasts</h2>
-		<p>Join us at these times</p>
-		<ul>
-			<li>Sundays @ 9:00 AM &amp; 11:00 AM <span class="timezone">Central Time</span></li>
-			<li>Fridays @ 6:30 PM <span class="timezone">Central Time</span></li>
-		</ul>
+		<p>Join us in:</p>
 		<div id="nextinternetbroadcast" class="link"></div>
+		<ul>
+			<li class="link"><a href="">Service Times</a></li>
+		</ul>
 	</section>
 	<section id="rebroadcasts" class="box">
 		<h2>Rebroadcasts</h2>
-		<p>Most Recent, Full Service</p>
+		<p>Most recent full services</p>
 		<ul>
 			<li class="link"><a href="javascript:sundayRebroadcast();">Sunday</a></li>
 			<li class="link"><a href="javascript:fridayRebroadcast();">Friday</a></li>
@@ -37,6 +36,7 @@
 	</section>
 	<section id="featuredseries" class="box">
 		<h2>Featured Series</h2>
+		<p>Lorem ipsum</p>
 		<div id="featuredseriestitle" class="link"></div>
 	</section>
 	<section id="externallinks" class="box">
@@ -71,6 +71,9 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 
 // live broadcast countdown
 cdtd(nextlivebroadcast);
+
+// show the featured series title
+document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + featuredseries + '</a>';
 </script>
 </body>
 </html>

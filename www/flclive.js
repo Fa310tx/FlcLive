@@ -24,7 +24,6 @@ fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// define the global variable (only works when using synchronous connections)
 	featuredseries = data.title;
 	featuredseries_camelcase = data.camelcase;
-	document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + data.title + '</a>';
 });
 // see if the global variable is still set (would say "undefined" if using an asychronous connection)
 //alert(featuredseries + ', ' + featuredseries_camelcase);
@@ -94,7 +93,7 @@ function cdtd(broadcast) {
 	minutes %= 60;
 	seconds %= 60;
 	document.getElementById('nextinternetbroadcast').className += " notlive";
-	document.getElementById('nextinternetbroadcast').innerHTML = 'Live in <span class="days">' + days + '</span>, <span class="hours">' + hours + '</span>, <span class="minutes">' + minutes + '</span>';
+	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span> ' + hours + ':' + minutes + ':' + seconds + '';
 	/*
 	// if you want to break out the time bits (useful if you want to be able to shorten (D)ays and such
 	document.getElementById("daysBox").innerHTML = days + " D";
@@ -104,6 +103,73 @@ function cdtd(broadcast) {
 	// document.getElementById("secsBox").innerHTML = seconds + " S";
 	*/
 	var timer = setTimeout(function() { cdtd(broadcast); }, 1000);
+}
+
+// load one of our XML files and show the info
+function loadXML(url) {
+	var xmlhttp;
+	var x, i, xx;
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+	}
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			// do something with your data
+			txt = '<div>';
+			x = xmlhttp.responseXML.documentElement.getElementsByTagName('item');
+			for (i = 0; i < x.length; i++) {
+				txt = txt + '<dl class="box">';
+				txt = txt + '<dt>Sermon Title</dt>';
+				xx = x[i].getElementsByTagName('title'); {
+					try {
+						txt = txt + '<dd>Pt. ' + xx[0].firstChild.nodeValue + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Speaker</dt>';
+				// loads speakers in Internet Explorer but not iOS (maybe a namespace issue)
+				xx = x[i].getElementsByTagName('dc:creator'); {
+					try {
+						txt = txt + '<dd style="font-size:0.85em;">' + xx[0].firstChild.nodeValue + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Date Preached</dt>';
+				xx = x[i].getElementsByTagName('pubDate'); {
+					// date.js (included separately) string format (Sunday, March 05, 2012)
+					var date = Date.parse(xx[0].firstChild.nodeValue).toString('dddd, MMMM dd, yyyy');
+					try {
+						txt = txt + '<dd style="font-size:0.65em;">' + date + '</dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '<dt>Download Link</dt>';
+				xx = x[i].getElementsByTagName('guid'); {
+					try {
+						txt = txt + '<dd><a href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\', \'http://www.flcbranson.org/images/Posters/' + basename(featuredseries_camelcase) + '.jpg\');">Audio (MP3)</a></dd>';
+					}
+					catch (er) {
+						txt = txt + '<dd> </dd>';
+					}
+				}
+				txt = txt + '</dl>';
+			}
+			txt = txt + '</div>';
+			document.getElementById('sermons').innerHTML = txt;
+		}
+	}
+	xmlhttp.open('GET', url, true);
+	xmlhttp.send();
 }
 
 // google analytics
