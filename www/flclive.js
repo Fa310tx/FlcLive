@@ -86,7 +86,7 @@ function openServiceTimes() {
 	<dl>\n\
 		<dt>Service Times</dt>\n\
 		<dd>Sundays @ 9:00 AM & 11:00 AM <span class="timezone">Central Time</span></dd>\n\
-		<dd>Fridays @ 6:00 PM <span class="timezone">Central Time</span></dd>\n\
+		<dd>Fridays @ 6:30 PM <span class="timezone">Central Time</span></dd>\n\
 	</dl>\n\
 	<p>Opening <abbr title="Faith Life Church">FLC</abbr> Live during these times will connect you directly to our live service broadcasts.</p>\
 	');
