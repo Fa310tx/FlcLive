@@ -15,7 +15,7 @@ function fetchJSONFile(path, callback) {
 }
 
 // set a global javascript variable
-var featuredseries, featuredseries_camelcase;
+var featuredseries, featuredseries_camelcase, featuredseries_speaker;
 // tell the function where the JSON data is
 fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// do something with your data
@@ -24,6 +24,7 @@ fetchJSONFile('http://www.flcbranson.org/api/featuredseries', function(data) {
 	// define the global variable (only works when using synchronous connections)
 	featuredseries = data.title;
 	featuredseries_camelcase = data.camelcase;
+	featuredseries_speaker = data.speaker;
 });
 // see if the global variable is still set (would say "undefined" if using an asychronous connection)
 //alert(featuredseries + ', ' + featuredseries_camelcase);

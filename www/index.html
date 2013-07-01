@@ -38,7 +38,7 @@
 	</section>
 	<section id="featuredseries" class="box">
 		<h2>Featured Series</h2>
-		<p class="subheading">Lorem ipsum</p>
+		<p id="featuredseriesspeaker" class="subheading"></p>
 		<div id="featuredseriestitle" class="link"></div>
 	</section>
 	<section id="externallinks" class="box">
@@ -77,8 +77,9 @@ fetchJSONFile('http://www.flcbranson.org/api/livebroadcast', function(data){
 // live broadcast countdown
 cdtd(nextlivebroadcast);
 
-// show the featured series title
+// show the featured series info
 document.getElementById('featuredseriestitle').innerHTML = '<a href="featuredseries.html">' + featuredseries + '</a>';
+document.getElementById('featuredseriesspeaker').innerHTML = 'By ' + featuredseries_speaker;
 </script>
 </body>
 </html>
