@@ -9,51 +9,49 @@ nav ul { list-style:none; }
 blockquote, q { quotes:none; }
 blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
 a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
-/* change colours to suit your needs */
 ins { background-color:#ff9; color:#000; text-decoration:none; }
-/* change colours to suit your needs */
 mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 del { text-decoration:line-through; }
 abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
 table { border-collapse:collapse; border-spacing:0; }
-/* change border colour to suit your needs */
 hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; }
 input, select { vertical-align:middle; }
 
 /* app styles */
 body { font-style:italic; font-family:Arial, Helvetica, sans-serif; background-color:#ffffff; color:#000000; }
 header { position:fixed; top:0; left:0; z-index:5; width:100%; background:#ffffff; color:#2b3244; }
-a { color:inherit; text-decoration:none; }
-abbr[title], dfn[title] { border:none; cursor:pointer; }
 /* h1 and .back share font-size and padding */
 h1 { margin:0 auto; padding:0.4em 0; width:6.5em; font-size:2em; background-repeat:no-repeat; background-position:right center; /*background-image:url(images/Logo-Flc-Transparent-600x427.png); background-size:auto 85%;*/ }
 .back { position:fixed; top:0; left:0; z-index:9; background:#bfbfbf; color:#ffffff; padding:0.4em 0.25em 0.4em 0.1em; font-size:2em; cursor:pointer; }
 .home .back { display:none; }
 h1 a { display:block; width:100%; }
-.box { padding:1em; text-align:center; background-color:rgba(20, 52, 95, 0.90); color:#ffffff; }
-.box a { display:block; width:100%; padding:1em 0; }
-.link { margin:1em 0; width:-webkit-calc(100% - 4px); width:calc(100% - 4px); background:#0066c3; border:2px solid #3e9df7; }
-.link.notlive { background:#404040; border:2px solid #c8c8c8;}
-.timezone { display:block; font-size:0.85em; }
-h2 { font-size:1.25em; font-weight:normal; color:#dba720; }
+a { color:inherit; text-decoration:none; }
+abbr[title], dfn[title] { border:none; cursor:pointer; }
+h2 { font-size:1.25em; font-weight:normal; color:#e5a015; }
 dl,
 ul { list-style:none; }
-h2 + p { color:#3ba8ff; }
 dt,
 li,
 .home #featuredseriestitle { margin-top:1em; }
 video { width:100%; height:100%; }
-#nextinternetbroadcast { padding:1em 0; text-transform:capitalize; }
-#nextinternetbroadcast .days:after { content:"d "; color:#757575; }
-#nextinternetbroadcast .hours:after { content:":"; }
-#nextinternetbroadcast .minutes:after { content:":"; }
-#nextinternetbroadcast .seconds:after { content:""; }
+.box { padding:1em; text-align:center; background-color:rgba(0, 54, 93, 0.90); color:#ffffff; }
+.box a { display:block; width:100%; padding:1em 0; }
+.link { margin:1em 0; width:-webkit-calc(100% - 4px); width:calc(100% - 4px); background:#0066c3; border:2px solid #3394ed; }
+.link.disabled { background:#323232; color:#bfbfbf; border:2px solid #595959;}
+.timezone { display:block; font-size:0.85em; }
+.subheading { color:#3394ed; }
+#nextinternetbroadcast { padding:1em 0; text-transform:lowercase; }
+#nextinternetbroadcast span:after { font-size:0.65em; color:#676767; }
+#nextinternetbroadcast .days:after { content:" days "; }
+#nextinternetbroadcast .hours:after { content:" hrs "; }
+#nextinternetbroadcast .minutes:after { content:" mins "; }
+#nextinternetbroadcast .seconds:after { content:" secs"; }
 #sermons dt { display:none; }
 .lightbox { position:fixed; top:0; right:0; bottom:0; left:0; z-index:8; white-space:normal; background:rgba(0, 0, 0, 0.5); text-align:center; }
-.lightbox .close { position:absolute; top:-webkit-calc(10% + 0.5em); top:calc(10% + 0.5em); right:-webkit-calc(10% + 0.5em); right:calc(10% + 0.5em); z-index:9; padding:0 0.25em 0 0.25em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
-.lightboxcontent { position:absolute; z-index:8; background:rgba(0, 0, 0, 0.8); color:#ffffff; border-top:1em solid #000000; }
+.lightbox .close { display:block; position:absolute; top:-webkit-calc(10% + 0.5em); top:calc(10% + 0.5em); right:-webkit-calc(10% + 0.5em); right:calc(10% + 0.5em); z-index:9; padding:0 0.35em 0.15em 0.35em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
+.lightboxcontent { position:absolute; z-index:8; background:rgba(0, 0, 0, 0.8); color:#ffffff; border-top:2em solid #000000; }
 .lightboxcontent/*.video*/ { top:10%; right:10%; bottom:10%; left:10%; }
-/*.lightboxcontent.servicetimes { padding:2em; top:3.6em; right:0; bottom:0; left:0; }*/
+.lightboxcontent.servicetimes { padding:1em; }
 .lightboxcontent.servicetimes dl { border-bottom:2px solid #c8c8c8; }
 .lightboxcontent.servicetimes dt { display:none; }
 .lightboxcontent.servicetimes dd { margin-bottom:1em; }
@@ -61,8 +59,7 @@ video { width:100%; height:100%; }
 .pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; }
 
 @media screen and (orientation:portrait) {
-.boxeswrapper > .box:first-of-type,
-.boxeswrapper > .featuredserieswrapper > .box:first-of-type { margin-top:5em; }
+.boxeswrapper { margin-top:5em; }
 .pointlessdivforbackgroundimage { background-position:right 3em; }
 }
 @media screen and (orientation:landscape) {
@@ -86,7 +83,7 @@ h1 { background-image:url(images/Logo-Flc-Transparent-64x45.png); }
 /* h1 and .back share font-size and padding */
 h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-57x40.png); }
 .back { font-size:1.75em; }
-.boxeswrapper > .box:first-of-type { margin-left:7em; }
+.boxeswrapper { margin-left:6em; }
 .box a,
 #nextinternetbroadcast { padding:0.5em 0; }
 .pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }

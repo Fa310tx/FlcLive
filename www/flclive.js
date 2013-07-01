@@ -73,7 +73,8 @@ function openVideo(url, poster) {
 function closeVideo() {
 	$('.lightbox video')[0].pause();
 	$('.lightbox').remove();
-	document.location.reload(true);
+	// refresh the page
+	//document.location.reload(true);
 }
 
 // opens and closes the service times lightbox (jquery)
@@ -112,7 +113,7 @@ function cdtd(broadcast) {
 	hours %= 24;
 	minutes %= 60;
 	seconds %= 60;
-	document.getElementById('nextinternetbroadcast').className += " notlive";
+	document.getElementById('nextinternetbroadcast').className += " disabled";
 	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span><span class="hours">' + hours + '</span><span class="minutes">' + minutes + '</span><span class="seconds">' + seconds + '</span>';
 	/*
 	// if you want to break out the time bits (useful if you want to be able to shorten (D)ays and such
