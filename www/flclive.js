@@ -178,7 +178,7 @@ function loadXML(url) {
 				txt = txt + '<dt>Download Link</dt>';
 				xx = x[i].getElementsByTagName('guid'); {
 					try {
-						txt = txt + '<dd><a href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\', \'http://www.flcbranson.org/images/Posters/' + basename(featuredseries_camelcase) + '.jpg\');">Audio (MP3)</a></dd>';
+						txt = txt + '<dd><a class="link" href="javascript:openVideo(\'' + xx[0].firstChild.nodeValue + '\', \'http://www.flcbranson.org/images/Posters/' + basename(featuredseries_camelcase) + '.jpg\');">Audio</a></dd>';
 					}
 					catch (er) {
 						txt = txt + '<dd> </dd>';
