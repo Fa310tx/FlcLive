@@ -34,12 +34,13 @@ dt,
 li,
 .home #featuredseriestitle { margin-top:1em; }
 video { width:100%; height:100%; }
+small { font-size:1em; color:#bfbfbf; }
 .box { padding:1em; text-align:center; background-color:rgba(0, 54, 93, 0.9); color:#ffffff; }
 .box a { display:block; width:100%; padding:1em 0; }
 .link { margin:1em 0; width:-webkit-calc(100% - 4px); width:calc(100% - 4px); background:#0066c3; border:2px solid #3394ed; }
 .link.disabled { background:#323232; color:#bfbfbf; border:2px solid #595959;}
-.timezone { display:block; font-size:0.85em; }
 .subheading { color:#3394ed; }
+.qualification { color:#3394ed; }
 #nextinternetbroadcast { padding:1em 0; text-transform:lowercase; }
 #nextinternetbroadcast span:after { font-size:0.65em; color:#676767; }
 #nextinternetbroadcast .days:after { content:" days "; }
@@ -49,10 +50,9 @@ video { width:100%; height:100%; }
 #sermons dt { display:none; }
 .lightbox { position:fixed; top:3em; right:0; bottom:0; left:0; z-index:4; padding:5em 1em 1em 1em; white-space:normal; background:rgba(0, 0, 0, 0.9); color:#ffffff; text-align:center; }
 .lightbox .close { display:block; position:absolute; top:2em; right:2em; z-index:9; padding:0 0.35em 0.15em 0.35em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
-.lightboxcontent.servicetimes dl { border-bottom:2px solid #c8c8c8; }
+.lightboxcontent.servicetimes p { padding:1em; padding-right:0; padding-left:0; border-top:2px solid #bfbfbf; }
 .lightboxcontent.servicetimes dt { display:none; }
 .lightboxcontent.servicetimes dd { margin-bottom:1em; }
-.lightboxcontent.servicetimes p { margin-top:1em; color:#c8c8c8; }
 .pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; }
 
 @media screen and (orientation:portrait) {
@@ -72,7 +72,9 @@ body { white-space:nowrap; display:table; border-spacing:1em 0.5em; background:t
 @media screen and (max-width:640px) and (orientation:portrait) {
 h1 { background-image:url(images/Logo-Flc-Transparent-64x45.png); }
 .box { margin:0 7em 1em 0.25em; }
-#livebroadcasts .timezone { display:block; }
+.lightboxcontent.servicetimes .timezone { display:block; font-size:0.85em; }
+.lightboxcontent.servicetimes .timezone:before { content:"("; }
+.lightboxcontent.servicetimes .timezone:after { content:")"; }
 .pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-320x568.jpg); }
 .featuredseries .pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-320x568.jpg); }
 }

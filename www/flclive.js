@@ -84,11 +84,12 @@ function openServiceTimes() {
 	$('.lightbox').append('<div class="lightboxcontent servicetimes"></div>');
 	$('.lightboxcontent').append('\
 	<dl>\n\
-		<dt>Service Times</dt>\n\
-		<dd>Sundays @ 9:00 AM & 11:00 AM <span class="timezone">Central Time</span></dd>\n\
-		<dd>Fridays @ 6:30 PM <span class="timezone">Central Time</span></dd>\n\
+		<dt>Broadcast Times</dt>\n\
+		<dd>Sundays @ 9:00 <abbr>AM</abbr> & <span class="qualification">***</span> 11:00 <abbr>AM</abbr> <span class="timezone">Central Time</span></dd>\n\
+		<dd>Fridays @ 6:30 <abbr>PM</abbr> <span class="timezone">Central Time</span></dd>\n\
 	</dl>\n\
-	<p>Opening <abbr title="Faith Life Church">FLC</abbr> Live during these times will connect you directly to our live service broadcasts.</p>\
+	<p>Open "<abbr title="Faith Life Church">FLC</abbr> Live" during these times to connect directly to our live service broadcasts.</p>\n\
+	<p><small><span class="qualification">***</span> When our Sunday service is broadcast live from Sarasota at 9:00 <abbr>AM</abbr> (central), the 11:00 AM service will be a rebroadcast and may be viewed by selecting Sunday Rebroadcast.</small></p>\
 	');
 }
 function closeServiceTimes() {
