@@ -85,8 +85,9 @@ h1 { font-size:1.75em; background-image:url(images/Logo-Flc-Transparent-57x40.pn
 .home .boxeswrapper { margin-left:6em; }
 .box a,
 #nextinternetbroadcast { padding:0.5em 0; }
-.lightbox { padding-top:2em; }
+.lightbox { padding-top:1em; }
 .lightbox .close { top:0.5em; right:0.5em; }
+.lightboxcontent.servicetimes { font-size:0.85em; }
 .pointlessdivforbackgroundimage { background-image:url(images/flcs-bromoorestagefrontmm13-568x320.jpg); }
 .featuredseries .pointlessdivforbackgroundimage { background-image:url(http://www.flcbranson.org/liveapp/featuredseries-568x320.jpg); }
 }
