@@ -50,7 +50,7 @@ small { font-size:1em; color:#bfbfbf; }
 #sermons dt { display:none; }
 .lightbox { position:fixed; top:3em; right:0; bottom:0; left:0; z-index:4; padding:5em 1em 1em 1em; white-space:normal; background:rgba(0, 0, 0, 0.9); color:#ffffff; text-align:center; }
 .lightbox .close { display:block; position:absolute; top:2em; right:2em; z-index:9; padding:0 0.35em 0.15em 0.35em; font-size:1em; color:#ffffff; font-style:normal; font-weight:normal; border:1px solid #ffffff; border-radius:1em; }
-.lightboxcontent.servicetimes p { padding:1em; padding-right:0; padding-left:0; border-top:2px solid #bfbfbf; }
+.lightboxcontent.servicetimes p { padding:1em; padding-right:0; padding-left:0; border-top:1px solid #909090; }
 .lightboxcontent.servicetimes dt { display:none; }
 .lightboxcontent.servicetimes dd { margin-bottom:1em; }
 .pointlessdivforbackgroundimage { position:fixed; top:0; right:0; bottom:0; left:0; z-index:-1; background-repeat:no-repeat; background-attachment:fixed; }

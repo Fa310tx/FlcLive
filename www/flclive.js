@@ -99,14 +99,14 @@ function closeServiceTimes() {
 // start javascript countdown (http://www.developphp.com/view.php?tid=1248)
 // don't forget to pass the broadcast variable
 function cdtd(broadcast) {
-	/* just about any standard date format is accepted */
+	// just about any standard date format is accepted
 	var nextinternetbroadcast = new Date(broadcast);
 	var now = new Date();
 	var timeDiff = nextinternetbroadcast.getTime() - now.getTime();
 	if (timeDiff <= 0) {
 		clearTimeout(timer);
 		document.getElementById('nextinternetbroadcast').innerHTML = '<a href="javscript:openVideo(' + livepublishingpoint + ');">Join live service now<\/a>';
-		/* Run any code needed for countdown completion here */
+		// run any code needed for countdown completion here
 	}
 	var seconds = Math.floor(timeDiff / 1000);
 	var minutes = Math.floor(seconds / 60);
@@ -117,14 +117,7 @@ function cdtd(broadcast) {
 	seconds %= 60;
 	document.getElementById('nextinternetbroadcast').className += " disabled";
 	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span><span class="hours">' + hours + '</span><span class="minutes">' + minutes + '</span><span class="seconds">' + seconds + '</span>';
-	/*
-	// if you want to break out the time bits (useful if you want to be able to shorten (D)ays and such
-	document.getElementById("daysBox").innerHTML = days + " D";
-	document.getElementById("hoursBox").innerHTML = hours + " H";
-	document.getElementById("minsBox").innerHTML = minutes + " M";
-	// seconds isn't in our html code (javascript error if this isn't commented out)
-	// document.getElementById("secsBox").innerHTML = seconds + " S";
-	*/
+	// loop the function every second
 	var timer = setTimeout(function() { cdtd(broadcast); }, 1000);
 }
 
