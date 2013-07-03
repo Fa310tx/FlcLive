@@ -105,7 +105,8 @@ function cdtd(broadcast) {
 	var timeDiff = nextinternetbroadcast.getTime() - now.getTime();
 	if (timeDiff <= 0) {
 		document.getElementById('nextinternetbroadcast').classList.remove('disabled');
-		document.getElementById('nextinternetbroadcast').innerHTML = '<a href="javscript:openVideo(' + livepublishingpoint + ');">Join live service now<\/a>';
+		document.getElementById('nextinternetbroadcast').innerHTML = '<a href="index.html">Join live service now<\/a>';
+		//document.getElementById('nextinternetbroadcast').innerHTML = '<a href="javscript:openVideo(' + livepublishingpoint + ');">Join live service now<\/a>';
 	} else {
 		var seconds = Math.floor(timeDiff / 1000);
 		var minutes = Math.floor(seconds / 60);
