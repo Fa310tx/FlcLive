@@ -104,21 +104,21 @@ function cdtd(broadcast) {
 	var now = new Date();
 	var timeDiff = nextinternetbroadcast.getTime() - now.getTime();
 	if (timeDiff <= 0) {
-		clearTimeout(timer);
+		document.getElementById('nextinternetbroadcast').classList.remove('disabled');
 		document.getElementById('nextinternetbroadcast').innerHTML = '<a href="javscript:openVideo(' + livepublishingpoint + ');">Join live service now<\/a>';
-		// run any code needed for countdown completion here
+	} else {
+		var seconds = Math.floor(timeDiff / 1000);
+		var minutes = Math.floor(seconds / 60);
+		var hours = Math.floor(minutes / 60);
+		var days = Math.floor(hours / 24);
+		hours %= 24;
+		minutes %= 60;
+		seconds %= 60;
+		document.getElementById('nextinternetbroadcast').className += " disabled";
+		document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span><span class="hours">' + hours + '</span><span class="minutes">' + minutes + '</span><span class="seconds">' + seconds + '</span>';
+		// loop the function every second
+		setTimeout(function() { cdtd(broadcast); }, 1000);
 	}
-	var seconds = Math.floor(timeDiff / 1000);
-	var minutes = Math.floor(seconds / 60);
-	var hours = Math.floor(minutes / 60);
-	var days = Math.floor(hours / 24);
-	hours %= 24;
-	minutes %= 60;
-	seconds %= 60;
-	document.getElementById('nextinternetbroadcast').className += " disabled";
-	document.getElementById('nextinternetbroadcast').innerHTML = '<span class="days">' + days + '</span><span class="hours">' + hours + '</span><span class="minutes">' + minutes + '</span><span class="seconds">' + seconds + '</span>';
-	// loop the function every second
-	var timer = setTimeout(function() { cdtd(broadcast); }, 1000);
 }
 
 // load one of our XML files and show the info
@@ -134,7 +134,7 @@ function loadXML(url) {
 	}
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			// do something with your data
+			// do s<!---->omething with your data
 			txt = '<div>';
 			x = xmlhttp.responseXML.documentElement.getElementsByTagName('item');
 			for (i = 0; i < x.length; i++) {

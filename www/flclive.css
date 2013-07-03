@@ -37,11 +37,12 @@ video { width:100%; height:100%; }
 small { font-size:1em; color:#bfbfbf; }
 .box { padding:1em; text-align:center; background-color:rgba(0, 54, 93, 0.9); color:#ffffff; }
 .box a { display:block; width:100%; padding:1em 0; }
+.box #nextinternetbroadcast a { padding:0; }
 .link { margin:1em 0; width:-webkit-calc(100% - 4px); width:calc(100% - 4px); background:#0066c3; border:2px solid #3394ed; }
 .link.disabled { background:#323232; color:#bfbfbf; border:2px solid #595959;}
 .subheading { color:#3394ed; }
 .qualification { color:#3394ed; }
-#nextinternetbroadcast { padding:1em 0; text-transform:lowercase; }
+#nextinternetbroadcast { padding:1em 0; }
 #nextinternetbroadcast span:after { font-size:0.65em; color:#676767; }
 #nextinternetbroadcast .days:after { content:" days "; }
 #nextinternetbroadcast .hours:after { content:" hrs "; }
